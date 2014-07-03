@@ -1,0 +1,139 @@
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:xf="http://www.w3.org/2002/xforms"
+ xmlns:ev="http://www.w3.org/2001/xml-events"
+>
+   <head>
+      <title>Simple Calc</title>
+      <xf:model>
+         <xf:instance>
+            <data xmlns="">               
+               <result/>
+               <select1/>
+               <cb1/>
+               <radio1/>
+            </data>
+         </xf:instance>
+      </xf:model>
+   </head>
+   <body>
+      <xf:select1 appearance="minimal" id="select1" ref="select1">
+         <xf:label>Choose item</xf:label>
+         <xf:item>
+            <xf:label>Item 1</xf:label>
+            <xf:value/>
+         </xf:item>
+         <xf:item>
+            <xf:label>Item 2</xf:label>
+            <xf:value/>
+         </xf:item>
+      </xf:select1>
+      <div>
+         <xf:select appearance="full" id="cb1" ref="cb1">
+            <xf:label>Favourite Ice Cream</xf:label>
+            <xf:item>
+               <xf:label>Vanilla</xf:label>
+               <xf:value>vanilla</xf:value>
+            </xf:item>
+            <xf:item>
+               <xf:label>Chocholate</xf:label>
+               <xf:value>chocholate</xf:value>
+            </xf:item>
+         </xf:select>
+      </div>
+      <xf:select1 appearance="full" id="radio1" ref="radio1">
+         <xf:label>Sex:</xf:label>
+         <xf:item>
+            <xf:label>Male</xf:label>
+            <xf:value>m</xf:value>
+         </xf:item>
+         <xf:item>
+            <xf:label>Female</xf:label>
+            <xf:value>f</xf:value>
+         </xf:item>
+      </xf:select1>
+      <table>
+         <td>
+            <span>
+               <div/>
+            </span>
+            <xf:group>
+               <xf:trigger id="b1">
+                  <xf:label>1</xf:label>
+                  <xf:action ev:event="DOMActivate">
+                     <xf:message/>
+                  </xf:action>
+               </xf:trigger>
+               <xf:trigger id="b2">
+                  <xf:label>2</xf:label>
+                  <xf:action ev:event="DOMActivate">
+                     <xf:message/>
+                  </xf:action>
+               </xf:trigger>
+               <xf:trigger id="b3">
+                  <xf:label>3</xf:label>
+                  <xf:action ev:event="DOMActivate">
+                     <xf:message/>
+                  </xf:action>
+               </xf:trigger>
+            </xf:group>
+         </td>
+      </table>
+      <xf:group>
+         <xf:trigger id="plus">
+            <xf:label>+</xf:label>
+            <xf:action ev:event="DOMActivate">
+               <xf:message/>
+            </xf:action>
+         </xf:trigger>
+         <xf:trigger id="minus">
+            <xf:label>-</xf:label>
+            <xf:action ev:event="DOMActivate">
+               <xf:message/>
+            </xf:action>
+         </xf:trigger>
+         <xf:trigger id="equals">
+            <xf:label>=</xf:label>
+            <xf:action ev:event="DOMActivate">
+               <xf:message/>
+            </xf:action>
+         </xf:trigger>
+      </xf:group>
+      <xf:input id="result" ref="result" name="result">
+         <xf:label>Result</xf:label>
+      </xf:input>
+
+        <div>
+            <xf:trigger appearance="minimal">
+                <xf:label>Tab 1 </xf:label>
+                <xf:toggle case="case-1" ev:event="DOMActivate"/>
+            </xf:trigger>
+            <xf:trigger appearance="minimal">
+                <xf:label>Tab 2 </xf:label>
+                <xf:toggle case="case-2" ev:event="DOMActivate"/>
+            </xf:trigger>
+            <xf:trigger appearance="minimal">
+                <xf:label>Tab 3 </xf:label>
+                <xf:toggle case="case-3" ev:event="DOMActivate"/>
+            </xf:trigger>
+        </div>
+        <xf:switch>
+            <xf:case id="case-1" selected="true">
+                <div>
+                    11111111111111111111111111111111111111111111111111<br/>
+                </div>
+            </xf:case>
+            <xf:case id="case-2">
+                <div>
+                    22222222222222222222222222222222222222222222222222<br/>
+                </div>
+            </xf:case>
+            <xf:case id="case-3">
+                <div>
+                    33333333333333333333333333333333333333333333333333<br/>
+                </div>
+            </xf:case>
+        </xf:switch>
+   </body>
+</html>
