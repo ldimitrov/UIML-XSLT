@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+    <interface>
+        <structure>  
+            <part class="div" id="tabs">
+                <part class="Tab" id="tab1"/>                    
+                <part class="Tab" id="tab2"/>                    
+                <part class="Tab" id="tab3"/>
+            </part>
+            <part class="div" id="TabContent">
+                <part class="Content" id="tc1"/>
+                <part class="Content" id="tc2"/>
+                <part class="Content" id="tc3"/>  
+            </part>                
+        </structure>
+        <style>
+            <property part-name="tab1" name="label">Tab-1</property>
+            <property part-name="tab2" name="label">Tab-2</property>
+            <property part-name="tab3" name="label">Tab-3</property> 
+            <property part-name="tab3" appearance="label">minimal</property> 
+            <property part-name="tc1" name="label" select="case">111111111</property> 
+            <property part-name="tc2" name="label" select="case">222222222</property> 
+            <property part-name="tc3" name="label" select="case">333333333</property>                        
+        </style>
+    </interface>
+    <peers>
+    </peers>
+</uiml>
