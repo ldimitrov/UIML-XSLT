@@ -39,31 +39,44 @@
       
                 <xf:model id="model{position()}">
                     <!-- Include XForms instance element -->
-                    <!-- /TODO Currently only xf:input elements are added to instance - add all of them -->
                     <xf:instance id="formData{position()}"> 
-                        <xsl:element name="data" namespace="{$instanceNamespace}"/>
+                        <xsl:element name="data">
+                        <!--<xsl:element name="data" namespace="{$instanceNamespace}">-->
                         <!-- <xsl:attribute name="{$instanceNamespace}"></xsl:attribute>-->
-                        <xsl:if test="uiml/interface/structure/part[@class='TextBox']">
-                            <xsl:for-each select="uiml/interface/structure/part[@class='TextBox']">
-                                <xsl:element name="{@id}"/>                                    
-                            </xsl:for-each>                                
-                        </xsl:if>
-                        <xsl:if test="uiml/interface/structure/part[@class='Select']">
-                            <xsl:for-each select="uiml/interface/structure/part[@class='Select']">
-                                <xsl:element name="{@id}"/>                                    
-                            </xsl:for-each>                                
-                        </xsl:if>
-                        <xsl:if test="uiml/interface/structure/part[@class='Checkbox']">
-                            <xsl:for-each select="uiml/interface/structure/part[@class='Checkbox']">
-                                <xsl:element name="{@id}"/>                                    
-                            </xsl:for-each>                                
-                        </xsl:if>
-                        <xsl:if test="uiml/interface/structure/part[@class='Radio']">
-                            <xsl:for-each select="uiml/interface/structure/part[@class='Radio']">
-                                <xsl:element name="{@id}"/>                                    
-                            </xsl:for-each>                                
-                        </xsl:if>
+                            <xsl:if test="//part[@class='TextInput']">
+                                <xsl:for-each select="//part[@class='TextInput']">
+                                    <xsl:element name="{@id}"/>                                    
+                                </xsl:for-each>                                
+                            </xsl:if>
+                            <xsl:if test="//part[@class='Select']">
+                                <xsl:for-each select="//part[@class='Select']">
+                                    <xsl:element name="{@id}"/>                                    
+                                </xsl:for-each>                                
+                            </xsl:if>
+                            <xsl:if test="//part[@class='Checkbox']">
+                                <xsl:for-each select="//part[@class='Checkbox']">
+                                    <xsl:element name="{@id}"/>                                    
+                                </xsl:for-each>                                
+                            </xsl:if>
+                            <xsl:if test="//part[@class='Radio']">
+                                <xsl:for-each select="//part[@class='Radio']">
+                                    <xsl:element name="{@id}"/>                                    
+                                </xsl:for-each>                                
+                            </xsl:if>
+                        </xsl:element>
                     </xf:instance>
+                    <!-- XForms binding -->
+                    <xsl:for-each select="uiml/interface/behavior/rule/condition/event[@class='binding']">
+                        <xf:bind>
+                            <xsl:attribute name="id">
+                                <xsl:value-of select="@part-name"/>
+                            </xsl:attribute>
+                            <!-- Figure out the exact path of the instance inside the model declaration -->
+                            <xsl:attribute name="nodeset">
+                                <xsl:value-of select="@part-name"/>
+                            </xsl:attribute>
+                        </xf:bind>
+                    </xsl:for-each>
                     <!-- XForms submission -->
                     <xf:submission action="{@action}">
                         <xsl:attribute name="method">
@@ -106,6 +119,9 @@
     
     <!-- UI - XForms text Input stylesheet - <xf:input/> -->
     <xsl:include href="XForms/text_input.xsl"/>
+    
+    <!-- UI - XForms text Output stylesheet - <xf:output/> -->
+    <xsl:include href="XForms/text_output.xsl"/>
     
     <!-- UI - XForms Select stylesheet - <xf:select1/> -->
     <xsl:include href="XForms/select.xsl"/>
