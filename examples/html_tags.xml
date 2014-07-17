@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+    <interface>
+        <structure>    
+            <part class="Button" id="b1"/>
+            <part class="ImageButton" id="imgB1"/>                
+            <part class="ImageButton" id="imbB2">
+                <style>
+                    <property part-name="imgB2" name="label">nested picture</property>
+                    <property part-name="imgB2" name="hint">this is a nested hint</property>
+                    <property part-name="imgB2" name="appearance">xf:image</property>
+                    <property part-name="imgB2" name="imgSource">button.png</property>
+                    <property part-name="imgB2" name="alt">nested picture as a button</property>
+                </style>     
+            </part>            
+        </structure>
+        <style>
+            <property part-name="imgB1" name="label">picture not nested</property>
+            <property part-name="imgB1" name="hint">this is a hint</property>
+            <property part-name="imgB1" name="appearance">xf:image</property>
+            <property part-name="imgB1" name="imgSource">button.png</property>
+            <property part-name="imgB1" name="alt">picture as a button</property>
+            <property part-name="b1" name="label">button</property>          
+            <property part-name="b1" name="hint">hint in normal button</property>            
+        </style>     
+    </interface>
+    <peers>
+    </peers>
+</uiml>
