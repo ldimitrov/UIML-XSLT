@@ -117,6 +117,9 @@
     <!-- UI - XForms button stylesheet - <xf:trigger/> -->
     <xsl:include href="XForms/button.xsl"/>
     
+    <!-- UI - XForms Image button stylesheet - <xf:trigger appearance="xf:image"/> -->
+    <xsl:include href="XForms/image_button.xsl"/>
+    
     <!-- UI - XForms text Input stylesheet - <xf:input/> -->
     <xsl:include href="XForms/text_input.xsl"/>
     
