@@ -4,6 +4,7 @@
     xmlns:ev="http://www.w3.org/2001/xml-events"
     exclude-result-prefixes="xs"
     xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:html="http://www.w3.org/1999/xhtml"
     version="2.0">
     
     <!-- UI - HTML div tag - <div/>  -->
@@ -27,6 +28,20 @@
                 <xsl:apply-templates/>
             </td>
         </table>      
+    </xsl:template>
+    
+    <!-- UI - HTML image tag - <img/> -->    
+    <xsl:template match="html:input[@type='image']">
+        <xf:trigger>
+            <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
+            <xf:label>
+                <xsl:value-of select="@value"/>
+            </xf:label>
+            <xsl:apply-templates select="@onclick"/>
+            <html:img src="{@src}">
+                <xsl:apply-templates select="@alt"/>
+            </html:img>
+        </xf:trigger>
     </xsl:template>
     
     <!-- Intention to create Tab by switching content by case statements -->

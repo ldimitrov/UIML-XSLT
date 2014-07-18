@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiml>
     <interface>
-        <structure>    
-            <part class="Button" id="b1"/>
-            <part class="ImageButton" id="imgB1"/>                
-            <part class="ImageButton" id="imbB2">
+        <structure>
+            <part class="Image" id="image1"/>  
+            <part class="Image" id="image2">
                 <style>
-                    <property part-name="imgB2" name="label">nested picture</property>
-                    <property part-name="imgB2" name="hint">this is a nested hint</property>
-                    <property part-name="imgB2" name="appearance">xf:image</property>
-                    <property part-name="imgB2" name="imgSource">button.png</property>
-                    <property part-name="imgB2" name="alt">nested picture as a button</property>
+                    <property part-name="image2" name="label">nested picture</property>
+                    <property part-name="image2" name="hint">this is a nested hint</property>
+                    <property part-name="image2" name="appearance">xf:image</property>
+                    <property part-name="image2" name="imgSource">button.png</property>
+                    <property part-name="image2" name="alt">nested picture as a button</property>
                 </style>     
             </part>            
+            <part class="Image" id="image3"/>  
         </structure>
         <style>
-            <property part-name="imgB1" name="label">picture not nested</property>
-            <property part-name="imgB1" name="hint">this is a hint</property>
-            <property part-name="imgB1" name="appearance">xf:image</property>
-            <property part-name="imgB1" name="imgSource">button.png</property>
-            <property part-name="imgB1" name="alt">picture as a button</property>
-            <property part-name="b1" name="label">button</property>          
-            <property part-name="b1" name="hint">hint in normal button</property>            
-        </style>     
+            <property part-name="image3" label="this is a label" hint="this is a hint" alt="this is alt" src="button.png" appearance="xf:image"/>
+            <property part-name="image1" name="label">!NESTED</property>
+            <property part-name="image1" name="hint">HINT</property>
+            <property part-name="image1" name="imgSource">button.png</property>
+            <property part-name="image1" name="alt">PIC BUTTON</property>
+        </style>
     </interface>
     <peers>
     </peers>

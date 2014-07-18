@@ -8,7 +8,7 @@
         
     <xsl:key name="buttonLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="altAttribute" match="property[@name='alt']" use="@part-name"/>
-    <xsl:key name="imageSource" match="property[@name='imgSource']" use="@part-name"/>
+    <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
     <xsl:key name="appearanceAttribute" match="property[@name='appearance']" use="@part-name"/>
     <xsl:key name="buttonHint" match="property[@name='hint']" use="@part-name"/>
     
@@ -81,7 +81,7 @@
             </xf:label>
             <img>
                 <xsl:attribute name="src">
-                    <xsl:value-of select="style/property[@name='imgSource']"/>
+                    <xsl:value-of select="style/property[@name='src']"/>
                 </xsl:attribute>
             </img>
             <xf:hint>

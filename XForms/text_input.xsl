@@ -28,13 +28,6 @@
                 <xsl:attribute name="bind">
                     <xsl:value-of select="key('bindings', @id)/action/property/@bind"/>
                 </xsl:attribute>
-            <!--</xsl:for-each>-->
-            <!--</xsl:if>-->
-            <!--<xsl:if test="//property[@incremential='true']">
-                <xsl:attribute name="incremential">
-                    <xsl:value-of select="@name"/>
-                </xsl:attribute>
-            </xsl:if>-->
             <xf:label>
                 <xsl:value-of select="key('textLabels', @id)"/>
             </xf:label>

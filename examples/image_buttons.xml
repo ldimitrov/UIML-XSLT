@@ -11,26 +11,23 @@
                 <property part-name="imgB4" label="Button 4 label" hint="hint from nested style" alt="this is alt from nested style" src="button.png" appearance="xf:image"/>
             </part>
             <!-- Image button with nested style in multiple lines -->
-            <part class="ImageButton" id="imbB3">
+            <part class="ImageButton" id="imgB3">
                 <style>
                     <property part-name="imgB3" name="label">nested picture</property>
                     <property part-name="imgB3" name="hint">this is a nested hint</property>
                     <property part-name="imgB3" name="appearance">xf:image</property>
-                    <property part-name="imgB3" name="imgSource">button.png</property>
+                    <property part-name="imgB3" name="src">button.png</property>
                     <property part-name="imgB3" name="alt">nested picture as a button</property>
                 </style>     
             </part>            
         </structure>
         <style>
-            <property part-name="image1" alt="image alt" />
             <property part-name="imgB1" label="this is a label" hint="this is a hint" alt="this is alt" src="button.png" appearance="xf:image"/>
             <property part-name="imgB2" name="label">!NESTED</property>
             <property part-name="imgB2" name="hint">HINT</property>
             <property part-name="imgB2" name="appearance">xf:image</property>
-            <property part-name="imgB2" name="imgSource">button.png</property>
-            <property part-name="imgB2" name="alt">PIC BUTTON</property>
-            <property part-name="b1" name="label">button</property>          
-            <property part-name="b1" name="hint">hint in normal button</property>            
+            <property part-name="imgB2" name="src">button.png</property>
+            <property part-name="imgB2" name="alt">PIC BUTTON</property>          
         </style>     
     </interface>
     <peers>
