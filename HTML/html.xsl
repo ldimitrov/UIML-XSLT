@@ -4,7 +4,6 @@
     xmlns:ev="http://www.w3.org/2001/xml-events"
     exclude-result-prefixes="xs"
     xmlns:xf="http://www.w3.org/2002/xforms"
-    xmlns:html="http://www.w3.org/1999/xhtml"
     version="2.0">
     
     <!-- UI - HTML div tag - <div/>  -->
@@ -30,7 +29,7 @@
         </table>      
     </xsl:template>
     
-    <!-- UI - HTML image tag - <img/> -->  
+    <!-- UI - HTML image tag - <img src="" alt=""/> -->  
     <xsl:key name="altAttribute" match="property[@name='alt']" use="@part-name"/>
     <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
     <xsl:key name="altAttribute_single" match="property[@alt]" use="@part-name"/>
@@ -49,7 +48,22 @@
         </img>
     </xsl:template>
         
-    <!-- UI - HTML anchor tag - <a/> --> 
+    <!-- UI - HTML anchor tag - <a href=""/> -->
+    <xsl:key name="anchorLink" match="property[@name='href']" use="@part-name"/>
+    <xsl:key name="anchorText" match="property[@name='text']" use="@part-name"/>
+    <xsl:key name="anchorLink_single" match="property[@href]" use="@part-name"/>
+    <xsl:key name="anchorText_single" match="property[@text]" use="@part-name"/>
+    <xsl:template match="part[@class='Anchor']">        
+        <a>            
+            <xsl:attribute name="href">
+                <xsl:value-of select="key('anchorLink_single', @id)/@href"/>
+                <xsl:value-of select="key('anchorLink', @id)"/>
+            </xsl:attribute>
+            <xsl:value-of select="key('anchorText', @id)"/>
+            <xsl:value-of select="key('anchorText_single', @id)/@text"/>
+            <xsl:apply-templates/>
+        </a>        
+    </xsl:template>
     
     <!-- Intention to create Tab by switching content by case statements -->
     <xsl:key name="tabLabels" match="property[@name='label']" use="@part-name"/>
