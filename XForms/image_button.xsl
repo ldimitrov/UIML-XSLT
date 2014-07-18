@@ -18,49 +18,31 @@
     <xsl:key name="appearanceAttribute_single" match="property[@appearance]" use="@part-name"/>
     <xsl:key name="buttonHint_single" match="property[@hint]" use="@part-name"/>
     
-    <!-- Buttons which have an @id corresponding to a style/property @part-name -->  
+    <!-- Buttons which have an @id corresponding to a style/property @part-name
+         In Single property line or Multiple property lines -->  
     <xsl:template match="part[@class='ImageButton']">
         <xf:trigger id="{@id}">
             <xsl:attribute name="appearance">
                 <xsl:value-of select="key('appearanceAttribute_single', @id)/@appearance"/>
-            </xsl:attribute>            
-            <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
-            <xf:label>
-                <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
-            </xf:label>
-            <img>
-                <xsl:attribute name="src">
-                    <xsl:value-of select="key('imageSource_single', @id)/@src"/>
-                </xsl:attribute>
-                <xsl:attribute name="alt">
-                    <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
-                </xsl:attribute>
-            </img>
-            <xf:hint>
-                <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>
-            </xf:hint>
-        </xf:trigger>
-    </xsl:template>
-    
-    <!-- Buttons which have an @id corresponding to a style/property @part-name -->  
-    <xsl:template match="part[@class='ImageButton'][key('buttonLabels', @id)]">
-        <xf:trigger id="{@id}">
-            <xsl:attribute name="appearance">
                 <xsl:value-of select="key('appearanceAttribute', @id)"/>
             </xsl:attribute>            
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
             <xf:label>
+                <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
                 <xsl:value-of select="key('buttonLabels', @id)"/>
             </xf:label>
             <img>
                 <xsl:attribute name="src">
+                    <xsl:value-of select="key('imageSource_single', @id)/@src"/>
                     <xsl:value-of select="key('imageSource', @id)"/>
                 </xsl:attribute>
                 <xsl:attribute name="alt">
+                    <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
                     <xsl:value-of select="key('altAttribute', @id)"/>
                 </xsl:attribute>
             </img>
             <xf:hint>
+                <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>
                 <xsl:value-of select="key('buttonHint', @id)"/>
             </xf:hint>
         </xf:trigger>
