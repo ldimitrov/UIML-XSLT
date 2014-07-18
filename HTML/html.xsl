@@ -30,19 +30,26 @@
         </table>      
     </xsl:template>
     
-    <!-- UI - HTML image tag - <img/> -->    
-    <xsl:template match="html:input[@type='image']">
-        <xf:trigger>
+    <!-- UI - HTML image tag - <img/> -->  
+    <xsl:key name="altAttribute" match="property[@name='alt']" use="@part-name"/>
+    <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
+    <xsl:key name="altAttribute_single" match="property[@alt]" use="@part-name"/>
+    <xsl:key name="imageSource_single" match="property[@src]" use="@part-name"/>
+    <xsl:template match="part[@class='Image']">
+        <img>
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
-            <xf:label>
-                <xsl:value-of select="@value"/>
-            </xf:label>
-            <xsl:apply-templates select="@onclick"/>
-            <html:img src="{@src}">
-                <xsl:apply-templates select="@alt"/>
-            </html:img>
-        </xf:trigger>
+            <xsl:attribute name="src">
+                <xsl:value-of select="key('imageSource_single', @id)/@src"/>
+                <xsl:value-of select="key('imageSource', @id)"/>
+            </xsl:attribute>
+            <xsl:attribute name="alt">
+                <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
+                <xsl:value-of select="key('altAttribute', @id)"/>
+            </xsl:attribute>
+        </img>
     </xsl:template>
+        
+    <!-- UI - HTML anchor tag - <a/> --> 
     
     <!-- Intention to create Tab by switching content by case statements -->
     <xsl:key name="tabLabels" match="property[@name='label']" use="@part-name"/>
