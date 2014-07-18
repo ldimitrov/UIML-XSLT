@@ -23,10 +23,7 @@
         <xf:trigger id="{@id}">
             <xsl:attribute name="appearance">
                 <xsl:value-of select="key('appearanceAttribute_single', @id)/@appearance"/>
-            </xsl:attribute>
-            <xsl:attribute name="alt">
-                <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
-            </xsl:attribute>
+            </xsl:attribute>            
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
             <xf:label>
                 <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
@@ -34,6 +31,9 @@
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="key('imageSource_single', @id)/@src"/>
+                </xsl:attribute>
+                <xsl:attribute name="alt">
+                    <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
                 </xsl:attribute>
             </img>
             <xf:hint>
@@ -47,10 +47,7 @@
         <xf:trigger id="{@id}">
             <xsl:attribute name="appearance">
                 <xsl:value-of select="key('appearanceAttribute', @id)"/>
-            </xsl:attribute>
-            <xsl:attribute name="alt">
-                <xsl:value-of select="key('altAttribute', @id)"/>
-            </xsl:attribute>
+            </xsl:attribute>            
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
             <xf:label>
                 <xsl:value-of select="key('buttonLabels', @id)"/>
@@ -58,6 +55,9 @@
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="key('imageSource', @id)"/>
+                </xsl:attribute>
+                <xsl:attribute name="alt">
+                    <xsl:value-of select="key('altAttribute', @id)"/>
                 </xsl:attribute>
             </img>
             <xf:hint>
@@ -71,10 +71,7 @@
         <xf:trigger id="{@id}">
             <xsl:attribute name="appearance">
                 <xsl:value-of select="style/property[@name='appearance']"/>
-            </xsl:attribute>
-            <xsl:attribute name="alt">
-                <xsl:value-of select="style/property[@name='alt']"/>
-            </xsl:attribute>
+            </xsl:attribute>            
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
             <xf:label>
                 <xsl:value-of select="style/property[@name='label']"/>
@@ -82,6 +79,9 @@
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="style/property[@name='src']"/>
+                </xsl:attribute>
+                <xsl:attribute name="alt">
+                    <xsl:value-of select="style/property[@name='alt']"/>
                 </xsl:attribute>
             </img>
             <xf:hint>
