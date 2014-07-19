@@ -143,6 +143,9 @@
     
     <!-- Include basic html elements -->
     <xsl:include href="HTML/html.xsl"/>
+    
+    <!-- Include layout -->
+    <xsl:include href="HTML/layout.xsl"/>
        
     <!-- Ignore <uiml>, <interface>, <structure> and <peers> tags -->
     <xsl:template match="uiml">
