@@ -2,6 +2,12 @@
 <uiml>
     <interface>
         <structure>
+            <part class="H1" id="h11"/>
+            <part class="H2" id="h21"/>
+            <part class="H3" id="h31"/>
+            <part class="H4" id="h41"/>
+            <part class="H5" id="h51"/>
+            <part class="H6" id="h61"/>
             <part class="div" id="div1">
                 <part class="Anchor" id="link1"/>
                 <part class="Anchor" id="link2">
@@ -17,6 +23,12 @@
             <part class="Image" id="image3"/>  
         </structure>
         <style>
+            <property part-name="h11" name="text">This is a h1 heading</property>
+            <property part-name="h21" name="text">This is a h2 heading</property>
+            <property part-name="h31" name="text">This is a h3 heading</property>
+            <property part-name="h41" name="text">This is a h4 heading</property>
+            <property part-name="h51" name="text">This is a h5 heading</property>
+            <property part-name="h61" name="text">This is a h6 heading</property>
             <property part-name="link1" name="href">https://www.link1.com/</property>
             <property part-name="link1" name="text">link text</property>  
             <property part-name="link2" href="https://www.link2.com/" text="Click Here"/>
