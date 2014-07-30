@@ -40,9 +40,9 @@
                     }
                 </style>-->                
                 
-                <link type="text/css" href="/xsltforms/xsltforms.css" rel="stylesheet"/>
                 <link type="text/css" href="/content/bootstrap.css" rel="stylesheet"/>
-                <link type="text/css" href="/content/normalize.css" rel="stylesheet"/>
+                <link type="text/css" href="/content/normalize.css" rel="stylesheet"/>                
+                <link type="text/css" href="/content/xform-styling.css" rel="stylesheet"/>
                 
                 <!-- Create an xforms model for each <form> elemtent -->
                 <xf:model id="model{position()}">
