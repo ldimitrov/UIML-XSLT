@@ -48,8 +48,18 @@
       <property part-name="multiplication" name="label">*</property>      
       <property part-name="minus" name="label">-</property>      
       <property part-name="plus" name="label">+</property>      
-      <property part-name="clear" name="label">C</property>      
-      <property part-name="equals" name="label">=</property>      
+      <property part-name="clear" name="label">C</property>
+      <property part-name="equals" name="label">=</property>
+      <property part-name="b0" name="style">btn btn-primary</property>
+      <property part-name="b1" name="style">btn btn-primary</property> 
+      <property part-name="b2" name="style">btn btn-primary</property> 
+      <property part-name="b3" name="style">btn btn-primary</property> 
+      <property part-name="b4" name="style">btn btn-primary</property> 
+      <property part-name="b5" name="style">btn btn-primary</property> 
+      <property part-name="b6" name="style">btn btn-primary</property> 
+      <property part-name="b7" name="style">btn btn-primary</property> 
+      <property part-name="b8" name="style">btn btn-primary</property> 
+      <property part-name="b9" name="style">btn btn-primary</property>       
       <property part-name="division" name="style">btn btn-warning</property>
       <property part-name="multiplication" name="style">btn btn-warning</property>
       <property part-name="minus" name="style">btn btn-warning</property>

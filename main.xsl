@@ -40,9 +40,12 @@
                     }
                 </style>-->                
                 
-                <link type="text/css" href="/content/bootstrap.css" rel="stylesheet"/>
-                <link type="text/css" href="/content/normalize.css" rel="stylesheet"/>                
-                <link type="text/css" href="/content/xform-styling.css" rel="stylesheet"/>
+                <link type="text/css" href="/content/css/bootstrap.css" rel="stylesheet"/>
+                <link type="text/css" href="/content/css/normalize.css" rel="stylesheet"/>                
+                <link type="text/css" href="/content/css/xform-styling.css" rel="stylesheet"/>
+                <script type="text/javascript" src="Content/scripts/bootstrap.js"></script>
+                <script type="text/javascript" src="Content/scripts/jquery-1.11.1.min.js"></script>
+                <script type="text/javascript" src="Content/scripts/modernizr-2.6.2.js"></script>
                 
                 <!-- Create an xforms model for each <form> elemtent -->
                 <xf:model id="model{position()}">
