@@ -6,25 +6,48 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
+    <xsl:key name="buttonStyles" match="property[@name='style']" use="@part-name"/>
+    
     <!-- UI - Button -->
     <xsl:key name="buttonLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="buttonHint" match="property[@name='hint']" use="@part-name"/>
+    <xsl:key name="buttonLabels_single" match="property[@label]" use="@part-name"/>
+    <xsl:key name="buttonHint_single" match="property[@hint]" use="@part-name"/>
 <!--    <xsl:key name="buttonActions" match="action/property[@name='text']" use="@part-name"/>-->
     <!-- All <part> elements that do not match the other two templates -->
     <xsl:template match="part"/>
     
     <!-- Buttons which have an @id corresponding to a style/property @part-name -->    
-    <xsl:template match="part[@class='Button'][key('buttonLabels', @id)]"><!-- [key('buttonActions', @id)]-->
-        <xf:trigger id="{@id}">
-            <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
-            <xf:label>
+    <xsl:template match="part[@class='Button']"><!-- [key('buttonActions', @id)]-->
+        <xsl:element name="xf:trigger">
+            <xsl:choose>
+                <xsl:when test="key('buttonStyles', @id) != ''">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('buttonStyles', @id)"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            
+            <xsl:attribute name="id">
+                <xsl:value-of select="@id | @size | @style"/>
+            </xsl:attribute>
+            <xsl:element name="xf:label">
                 <xsl:value-of select="key('buttonLabels', @id)"/>
-            </xf:label>
-            <xf:hint>
-                <xsl:value-of select="key('buttonHint', @id)"></xsl:value-of>
-            </xf:hint>
-<!--            <xsl:apply-templates select="key('buttonActions', @id)"/>-->
-        </xf:trigger>
+                <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
+            </xsl:element>
+            <xsl:choose>
+                <xsl:when test="key('buttonHint', @id) != ''">
+                    <xsl:element name="xf:hint">
+                        <xsl:value-of select="key('buttonHint', @id)"></xsl:value-of>
+                    </xsl:element>
+                </xsl:when>
+                <xsl:when test="key('buttonHint_single', @id)/@hint != ''">
+                    <xsl:element name="xf:hint">                        
+                        <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>
+                    </xsl:element>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:element>
     </xsl:template>
     
     <!-- Buttons which have a nested style/property with @name=label -->
