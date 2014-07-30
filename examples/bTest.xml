@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiml>
     <interface>
-        <structure>            
-            <part class="Group" id="input">
-                <part class="TextInput" id="firstName"/>
-                <part class="TextInput" id="lastName"/>
-            </part>
-            <part class="Group" id="output">
-                <part class="TextOutput" id="firstNameOutput"/>
-                <part class="TextOutput" id="lastNameOutput"/>
-            </part>
+        <structure>
+            <part class="Container" id="c1">           
+                <part class="Group" id="input">
+                    <part class="TextInput" id="firstName"/>
+                    <part class="TextInput" id="lastName"/>
+                </part>
+                <part class="Group" id="output">
+                    <part class="TextOutput" id="firstNameOutput"/>
+                    <part class="TextOutput" id="lastNameOutput"/>
+                </part>
+                <part class="Button" id="b1"/>
+            </part> 
         </structure>
         <style>
             <property part-name="firstName" name="label">Enter your first name:</property>
             <property part-name="lastName" name="label">Enter your last name:</property>
             <property part-name="firstNameOutput" name="label">Output first name:</property>
             <property part-name="lastNameOutput" name="label">Output last name:</property>
+            <property part-name="b1" name="label">Submit</property>
         </style>
         <behavior>
             <rule>

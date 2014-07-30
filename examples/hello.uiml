@@ -24,6 +24,7 @@
                     <part class="Button" id="b1"/>
                     <part class="Button" id="b2"/>
                     <part class="Button" id="b3"/>
+                    <part class="Button" id="b4"/>
                 </part>
             </part>
             <part class="Group" id="secondRow">
@@ -35,7 +36,9 @@
             
         </structure>
         <style>
+            <property part-name="b4" label="button 4" hint="this is the 4th button"/>
             <property part-name="b1" name="label">1</property>
+            <property part-name="b1" name="hint">this is the 1st button</property>
             <property part-name="b2" name="label">2</property>
             <property part-name="b3" name="label">3</property>
             <property part-name="plus" name="label">+</property>
