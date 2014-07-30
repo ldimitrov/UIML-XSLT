@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
     xmlns:xf="http://www.w3.org/2002/xforms" 
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"    
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     version="2.0">
 
     <xd:doc scope="stylesheet">
@@ -28,15 +28,23 @@
     <!-- TODO: Make sure that space between the quotes is lost.... -->
     <xsl:variable name="instanceNamespace" select="' '"/>
     
-    
     <!-- Process <html> root element -->
     <xsl:output method="xml" indent="yes"/>
     <xsl:template match="/">
         <html>
             <head>
-                <title>Simple Calc</title>                
+                <title>Simple Calc</title>         
+                <!--<style>
+                    btn-danger {
+                    color:red
+                    }
+                </style>-->                
+                
+                <link type="text/css" href="/xsltforms/xsltforms.css" rel="stylesheet"/>
+                <link type="text/css" href="/content/bootstrap.css" rel="stylesheet"/>
+                <link type="text/css" href="/content/normalize.css" rel="stylesheet"/>
+                
                 <!-- Create an xforms model for each <form> elemtent -->
-      
                 <xf:model id="model{position()}">
                     <!-- Include XForms instance element -->
                     <xf:instance id="formData{position()}"> 
@@ -103,6 +111,7 @@
                 </xf:model>
             </head>
             <body>
+                <xsl:attribute name="class">container</xsl:attribute>
                 <xsl:apply-templates/>
             </body>
         </html>
