@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiml>
   <interface>
-    <structure>
+    <structure>    
       <part class="Container" id="c1">
         <part class="Row" id="inputRow">
           <part class="TextInput" id="input"/>

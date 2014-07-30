@@ -30,5 +30,12 @@
              values for positions and width, height         -->
         
     </xsl:template>
+    
+    <xsl:template match="part[@class='Row']">
+        <xsl:element name="div">
+            <xsl:attribute name="class">row</xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
 </xsl:stylesheet>
 
