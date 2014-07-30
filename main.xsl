@@ -111,7 +111,6 @@
                 </xf:model>
             </head>
             <body>
-                <xsl:attribute name="class">container</xsl:attribute>
                 <xsl:apply-templates/>
             </body>
         </html>

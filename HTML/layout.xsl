@@ -4,20 +4,31 @@
     exclude-result-prefixes="xs"
     xmlns:xf="http://www.w3.org/2002/xforms"
     version="2.0">
-    <xsl:template match="part[@class='RelativeLayout']">
+    
+    <!-- simple container layout by Bootstrap CSS -->
+    <xsl:template match="part[@class='Container']">
+        <xsl:element name="div">
+            <xsl:attribute name="class">container</xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
         
+        <!-- RelativeLayout lets child views specify their position relative to the parent 
+             view or to each other (specified by ID). So you can align two elements by right
+             border, or make one below another, centered in the screen, centered left, and 
+             so on.
+        -->
         <!-- Add rules for:
-         - to the left of
          - to the right of
          - below
-         - maybe on top, but seems redundant
+         - center vertical, center horizontal (but maybe that with css)
         -->
         
+        <!-- Grid layout - would look for something like css grid -->
         <!-- Add styles for width and height of elements. 
              The idea is that elements can have these properties
              and be styled accordingly, instead of defining hard-coded
-             values for positions and width, height 
-        -->
-        <xsl:apply-templates/>
+             values for positions and width, height         -->
+        
     </xsl:template>
 </xsl:stylesheet>
+
