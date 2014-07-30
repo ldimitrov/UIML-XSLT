@@ -9,6 +9,7 @@
     <xsl:template match="part[@class='TextInput'][key('textLabels', @id)]">
         <xf:input>
             <xsl:apply-templates select="@size | @style"/>
+            <xsl:attribute name="class">row</xsl:attribute>
             <!-- Create Reference to the XForms instance -->
             <xsl:attribute name="ref">
                 <xsl:choose>
@@ -23,11 +24,13 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>            
-<!--            <xsl:for-each select="uiml/interface/behavior/rule/condition/event[@class='binding']">-->
-                <!--<xsl:if test="uiml/interface/behavior/rule/condition/event[@class='binding']">-->
-                <xsl:attribute name="bind">
-                    <xsl:value-of select="key('bindings', @id)/action/property/@bind"/>
-                </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test="key('bindings', @id)/action/property/@bind != ''">
+                    <xsl:attribute name="bind">
+                        <xsl:value-of select="key('bindings', @id)/action/property/@bind"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
             <xf:label>
                 <xsl:value-of select="key('textLabels', @id)"/>
             </xf:label>
