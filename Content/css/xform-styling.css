@@ -1,0 +1,1080 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+.select2-container {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.select2-container .select2-choice {
+    height: 33px;
+}
+
+/* Set the fixed height of the footer here */
+#header {
+  position:fixed;
+  top:0px;
+  left:0px;
+  height:300px;
+  right:0px;
+  overflow: visible;
+}
+
+#content, #composite-content {
+    position:fixed;
+    top:84px;
+    bottom:45px;
+    left:0px;
+    right:0px;
+    overflow: auto;
+}
+
+#composite-content {
+    overflow: hidden;
+}
+
+#composite-form-lhs {
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    overflow: none;
+    z-index: 0;
+}
+
+#composite-form-rhs {
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:16.66666%;
+    overflow-y: auto;
+}
+
+#warning-message-view {
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 100;
+}
+
+.section-nav-controls {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tree-nav-control {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  position:fixed;
+  bottom:0px;
+  height:45px;
+  left:0px;
+  right:0px; 
+  overflow:hidden;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-top: 1px solid #ccc;
+  padding: 5px;
+}
+
+#header, #footer, #content, #composite-content, #warning-message-view, #experimental {
+   max-width: 1100px;
+}
+
+.selected-l1, .selected-l2, .selected-l3, .selected-l4 {
+}
+
+.unselected-l1 .xforms-value, .unselected-l2 .xforms-value, .unselected-l3 .xforms-value, .unselected-l4 .xforms-value {
+    color: #aaa;
+}
+
+.horizontally-bounded {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.delete-btn {
+    width: 8%;    
+    padding-left: 4px;
+}
+
+.selected-btn {
+    width: 92%;
+    text-align: left;
+}
+
+.delete-btn a span::before {
+    padding: 0px;
+    content: "\f014";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.buttons-right-row {
+  
+}
+
+.buttons-right-label {
+  padding-left: 0px;
+}
+
+.buttons-right-label .xforms-label {
+	padding-top: 0px;
+}
+
+div.buttons-right-buttons {
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 5px;
+}
+
+.vertically-bounded {
+    height: 300px;
+    overflow-y: auto;
+}
+
+.block {
+    display: block;
+}
+ 
+    button { 
+        background: inherit; 
+        border: 0px; 
+        color: inherit; 
+        font-size: inherit;
+    }
+    
+    label {
+        margin-top: 3px;
+        margin-bottom: 1px;
+        display: block;
+    }
+
+    .xforms-item {
+        margin-top: 3px;
+    }
+
+    .xforms-item-label {
+        display: block;
+        margin-top: -16px;
+        padding-left: 8px;
+    }
+
+    .xforms-address-line, .xforms-address-label {
+        display: block;
+    }
+
+    .xforms-address-line {
+        line-height: 1em;
+    }
+
+    .xforms-required label:before {
+        content: "*";
+        color: #df382c;
+        padding-right: 2px;
+    }
+
+    .xforms-required .xforms-required-icon {
+        display: none;
+    }
+
+    .xforms-control {
+        margin-bottom: 6px;
+    }
+
+    /*.xforms-itemset {
+        width: inherit;
+    }*/
+
+    span.xforms-alert-value {
+        display: block;
+    }
+    
+    label.question {
+        font-size: 1.1em;
+    }
+    
+    .label-large {
+        font-size: 30px;
+    }
+
+    .right-align {
+        text-align: right;
+    }
+
+    .form-section {
+        border: 1px solid #dddddd;
+    }
+
+    div.heading-large {
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: #eee;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    div.subheading {
+        background: #f2f2f2;
+        padding-top: 5px;
+        padding-bottom: 5px;        
+        color: #999;
+        font-style: italic;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    div.footer-row {
+        font-size: 0.8em;
+        background: #f2f2f2;
+        padding-top: 5px;
+        padding-bottom: 5px;        
+        color: #999;
+        border-top: 1px solid #dddddd;
+    }
+    
+    .form-section .xforms-group-content {
+        background: #fafafa;
+    }
+
+    .form-section .xforms-group-content .row:last-child {
+        background: #fafafa;
+        padding-bottom: 10px;
+    }
+
+    .form-section-highlight {
+        border: 1px solid #5bc0de;
+    }
+
+    .form-section-highlight .heading-large {
+        background: #DEF2F8;
+        color: #244D59;
+        border-bottom: 1px solid #5bc0de;
+    }
+
+    .form-section-danger {
+        border: 1px solid #d9534f;
+    }
+
+    .form-section-danger .heading-large {
+        background: #f2dede;
+        color: #d9534f;
+        border-bottom: 1px solid #d9534f;
+    }
+
+    .form-section-warning {
+        border: 1px solid #f0ad4e;
+    }
+
+    .form-section-warning .heading-large {
+        background: #FAE6CA;
+        color: #f0ad4e;
+        border-bottom: 1px solid #f0ad4e;
+    }
+
+    .form-section-success {
+        border: 1px solid #398439;
+    }
+
+    .form-section-success .heading-large {
+        background: #dff0d8;
+        color: #449d44;
+        border-bottom: 1px solid #398439;
+    }
+
+    .section-spacer {
+        margin-top: 20px;
+    }
+
+    .spacer-row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    
+
+    .collapse-margin {
+        margin: 0px;
+    }
+
+    .collapse-margin .xforms-label {
+        margin: 0px;
+    }
+
+    .collapse-padding .xforms-label {
+        padding: 0px;
+    }
+
+    .collapse-padding {
+        padding: 0px;
+    }
+
+    .minimal-padding {
+        padding: 2px;
+    }
+
+    .composite-form .col-md-1, .composite-form .col-md-2, .composite-form .col-md-3, .composite-form .col-md-4, .composite-form .col-md-5, .composite-form .col-md-6, .composite-form .col-md-7, .composite-form .col-md-8, .composite-form .col-md-9, .composite-form .col-md-10, .composite-form .col-md-11, .composite-form .col-md-12 {
+        margin-right: inherit;
+        padding-right: inherit;
+    }
+
+    .narrow input[type="text"] {
+        max-width: 130px;
+    }
+    
+    .narrower input[type="text"] {
+        max-width: 100px;
+    }
+    
+    .narrowest input[type="text"] {
+        max-width: 70px;
+    }
+
+    .wide input[type="text"] {
+        min-width: 230px;
+    }
+
+    .fill-parent input[type="text"], .fill-parent textarea {
+        min-width: 100%;
+    }
+
+    .select2-container .select2-choice {
+        min-width: 180px;
+    }
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    vertical-align: top;
+    margin-left: inherit;
+    margin-right: inherit;
+}
+
+.row {
+    margin-left: inherit;
+    margin-right: inherit;
+    box-sizing: border-box;
+}
+
+.show-grid {
+    border-bottom: 1px #eee solid;
+}
+    
+    textarea {
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;    
+        box-sizing: border-box;  
+        width: 100%;
+        min-width: 150px;       
+        max-width: 400px;
+        min-height: 50px;
+    }
+
+    .tall textarea {
+        min-height: 100px;
+    }
+
+    .taller textarea {
+        min-height: 130px;
+    }
+
+    .tallest textarea {
+        min-height: 160px;
+    }
+
+    .col-md-12 textarea { 
+        max-width: 850px;
+    }
+
+    .col-md-11 textarea { 
+        max-width: 800px;
+    }
+
+    .col-md-4 textarea { 
+        max-width: 250px;
+    }
+
+    .col-md-3 textarea { 
+        max-width: 200px;
+    }
+    
+    .page-control {
+        margin-top: 50px;
+    }
+    
+    .xforms-item-label {
+        margin-left: 10px;
+    }
+    
+    .rhs {
+        float: right;
+        text-align: right;
+    }
+
+    .large-pre-space {
+        margin-top: 15px;
+    }
+    
+    .pre-space {
+        margin-top: 7px;
+    }
+    
+    .small-pre-space {
+        margin-top: 3px;
+    }
+	
+	.right-pad {
+		padding-right: 10px;
+	}
+
+    .post-space {
+        margin-bottom: 7px;
+    }
+	
+	.top-bottom-pad {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+    .bottom-pad {
+        padding-bottom: 10px;
+    }
+    
+    .subtle {
+        color: #aaa;
+    }
+	
+	.normal {
+		font-size: 1em;
+		font-weight: normal;
+		font-style: normal;
+	}
+	
+	.small {
+		font-size: 0.8em;
+		font-weight: normal;
+		font-style: normal;
+	}
+
+    .error {
+        border: 1px solid red;
+        color: white;
+        background-color: #ff9494;
+    }
+	
+	.emphasise {
+		font-size: 1.4em;
+		font-weight: bold;
+		color: orange;
+	}
+	
+	.secondaryemphasis {
+		font-size: 1.2em;
+		color: #999;
+	}
+
+
+    input[type="radio"] {
+        width: auto;
+        border: 0px;
+        background: inherit;
+    }
+
+    input[type="radio"]:checked + span, input[type="checkbox"]:checked + span { background-color: 	#E6FF99; font-weight: bold;}
+    input.checked {background-color: 	#E6FF99; font-weight: bold;}
+
+     .btn-group.xforms-repeat {
+        display: inherit;
+     }
+    
+    .btn-group.xforms-repeat > div.xforms-repeat-item .btn, .btn-group-vertical.xforms-repeat .btn {
+      display: inherit;
+      position: relative;
+      float: left;      
+    }
+    
+    .btn-group.xforms-repeat > div.xforms-repeat-item:first-child:not(:last-child) .btn:not(.dropdown-toggle) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    .btn-group.xforms-repeat > div.xforms-repeat-item:last-child:not(:first-child) .btn, .btn-group.xforms-repeat > div div.xforms-repeat-item .dropdown-toggle:not(:first-child) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+     }
+     
+     .btn-group.xforms-repeat > div.xforms-repeat-item:not(:first-child):not(:last-child) .btn:not(.dropdown-toggle) {
+        border-radius: 0;
+     }
+     
+     .btn-group.xforms-repeat > div.xforms-repeat-item:not(:first-child) .btn {
+        margin-left: -1px;
+      }
+    .btn-sm { padding: 3px; }
+    .btn .value a { padding: 9px; color: white; background: inherit; text-decoration: none;}
+    .btn .xforms-label {padding: initial;}
+    .btn.selected  { background: #E6FF99; margin-bottom: 6px;}
+    .btn.unselected  { margin-bottom: 6px;}
+    .btn-default .value a { color: inherit;}
+    .btn-sm .value a {font-size: 1.2em;}
+    .btn-block {
+        text-align: left;
+        display: inherit;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .inline, .inline .xforms-repeat-item, .inline .xforms-group-content { display: inline; }
+    
+.xforms-invalid input,
+.xforms-invalid select,
+.xforms-invalid textarea {
+  color: #df382c;
+}
+
+.xforms-invalid input,
+.xforms-invalid select,
+.xforms-invalid textarea {
+  border-color: #df382c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.xforms-invalid input:focus,
+.xforms-invalid select:focus,
+.xforms-invalid textarea:focus {
+  border-color: #bc271c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ec8c85;
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ec8c85;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ec8c85;
+}
+
+button.aid-button {
+    position: relative;
+    left: 3px;
+    visibility: visible;
+    content: "";
+    background: transparent;
+}
+
+/* Make date input narrower */
+.date-input input[type="text"] {
+    width: 90px;
+    min-width: 90px;
+}
+
+.add:before {
+    padding-left: 2px;
+    padding-right: 4px;
+    content: "\f067";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    background: inherit;
+    visibility: visible;
+}
+
+.save:before {
+    padding-left: 2px;
+    padding-right: 4px;
+    content: "\f0c7";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    background: inherit;
+    visibility: visible;
+}
+
+.continue:after {
+    padding-left: 4px;
+    padding-right: 0px;
+    content: "\f054";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    background: inherit;
+    visibility: visible;
+}
+
+.previous:after {
+    padding-left: 0px;
+    padding-right: 0px;
+    content: "\f053";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    background: inherit;
+    visibility: visible;
+}
+
+button.aid-button:before {
+    padding-left: 2px;
+    content: "\f133";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    background: inherit;
+    visibility: visible;
+}
+
+.delete:after {
+    vertical-align: middle;
+    text-align: right;
+    content: "\f014";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: inherit;
+    background: inherit;
+    visibility: visible;
+}
+
+input, textarea, select {
+    border: 1px solid #e2e2e2;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 1px solid #7ac0da;
+}
+
+.input-append .add-on,
+.input-append button.aid-button {
+  margin-left: -1px;
+  width: 30px;
+  height: 30px;
+}
+.input-append .add-on:last-child,
+.input-append button.aid-button:last-child {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+
+.xforms-ouput .value {
+    margin-right: 3px;
+}
+
+
+.xforms-invalid .input-prepend .add-on,
+.xforms-invalid .input-append .add-on {
+  color: #df382c;
+  background-color: #fadfdd;
+  border-color: #df382c;
+}
+
+.xforms-alert-icon {
+    display: none;
+}
+
+.xforms-invalid .xforms-alert-value {
+	width: inherit;
+	position: inherit;
+	display: block;
+	border: 0px;
+	background: inherit;
+	color: #df382c;
+    margin: 0px;
+    padding: 0px;
+}
+
+.xforms-label {
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+
+.subtle-label {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #666;
+}
+
+.inline-control .xforms-label {
+    display: inline;
+    padding-right: 2px;
+    /* padding-left: 5px; */
+}
+
+.highlighted-control .xforms-value {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.semi-highlight-control {
+    font-weight: bold;
+}
+
+.inline-control .xforms-value {
+    padding-left: 3px;
+    padding-right: 10px;
+}
+
+.kill-bootstrap-col-left-right-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.truncate span.value, .truncate span.xforms-value {
+    text-overflow: inherit;
+}
+
+
+/* Hide an input field control */
+.hide-value > .value, .hide-value > .xforms-value {
+    display: none;
+}
+
+/* Need to ensure that labels that are values from an xf:output are displayed */
+.hide-value .xforms-label .value, .hide-value .xforms-label .xforms-value, .hide-value .xforms-alert .value {
+    display: inherit;
+}
+
+.xforms-invalid .xforms-label {
+    color: #df382c;
+}
+
+span.xforms-help-icon {
+    display: block;
+    z-index: 99;
+    background-image: url(xsltforms/icon_help.gif);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    margin-top: 3px;
+}
+
+span.xforms-help-value {
+    z-index: 100;
+    background: #d9edf7;
+    border: 1px solid #84cde3;
+    margin-left: 10px;
+    padding: 5px;
+    min-width: 300px;
+    width: auto;
+    text-wrap: normal;
+}
+
+.inline-hint {
+    padding-left: 8px;
+}
+
+.inline-hint .xforms-value, span.xforms-hint-value {
+    font-weight: normal;
+    color: #666;
+    font-size: 0.8em;
+}
+
+span.xforms-hint-value {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 5px;
+    background: inherit;
+    width: inherit;
+    border: 0px;
+    position: relative;
+}
+
+    
+
+.xforms-hint-icon {
+    display: none;
+}
+
+.section-spinner {
+     position: relative;
+     z-index:15;
+     width:1px;
+     right: 0px;
+     top: 18px;
+     padding-right: 30px;
+     background:inherit;
+     box-sizing: border-box;
+}
+
+.submission-in-progress {
+    filter:alpha(opacity=50); /* IE */
+    opacity: 0.5; /* Safari, Opera */
+    -moz-opacity:0.50; /* FireFox */
+}
+
+.centred-message {
+     position:absolute;
+     width:1px;
+     height:1px;
+     z-index:15;
+     top:50%;
+     left:50%;
+     background:inherit;
+     box-sizing: border-box;
+}
+
+.centred-message-detail {
+     position:relative;
+     width:300px;
+     height:20px;
+     top:30px;
+     left:-150px;
+     text-align: center;
+}
+
+/** Patient banner */
+.patient-banner {    
+    -moz-box-shadow: 0px 2px 2px #ccc;
+    -webkit-box-shadow: 0px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px #ccc;
+    border-bottom: 1px solid #aaa;
+}
+
+.patient-banner .core-patient-details {
+    font-size: 1.1em;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+    background: #eeeeee;
+    
+}
+
+.patient-banner .patient-additional-details {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #fff;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;  
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.vertical-tab-nav {
+    margin: inherit;
+    padding: inherit;
+    /*border-right: 8px solid #3276b1;*/
+    border-right: 1px solid #aaa;
+    color: white;
+    padding: 5px;
+    padding-right: 0px;
+    background: #eee;
+}
+
+ul.nav-pills li {
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 5px;
+    border: 1px solid #aaa;
+    margin-right: -1px;
+    margin-top: 5px;
+}
+
+ul.nav-pills li:before {
+    vertical-align: middle;
+    text-align: left;
+    /*content: "\f111";*/
+    content: "\f059";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #f0ad4e;
+    padding-right: 5px;
+    visibility: visible;
+}
+
+ul.nav-pills li.completed:before {
+    content: "\f058";
+    color: #5cb85c;
+}
+
+ul.nav-pills li.save-errors:before {
+    content: "\f071";
+    color: #d9534f;
+}
+
+ul.nav-pills li.selected {
+    background: white;
+    border-right: 1px solid white;
+}
+
+ul.nav-pills li.selected span a, ul.nav-pills li.selected span a:hover {
+    background: inherit;
+    font-weight: bold;    
+}
+
+ul.nav-pills li.deselected {
+    background: #3276b1;
+}
+ul.nav-pills li.deselected span a {
+    color: white;
+}
+
+ul.nav-pills li.relevant-false {
+    display: none;
+}
+
+#warning-message-view {    
+    z-index: 100;
+}
+
+/* The following taken from bootstrap site and adjusted */
+.bs-callout-warning {
+	background-color: #fcf8f2;
+	border-color: #f0ad4e;    
+}
+
+.bs-callout {
+	padding: 20px;
+    border: 1px solid #eee;
+	border-left: 3px solid #eee;    
+}
+
+.bs-callout-warning h4 {
+	color: #f0ad4e;
+}
+
+.bs-callout-danger{
+	background-color:#fdf7f7;
+	border-color:#d9534f;
+}
+.bs-callout-danger h4 {
+	color:#d9534f;
+}
+
+div.score .value {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 6px;
+    padding-bottom: 2px;    
+}
+
+div.score {
+    color: #aaa;
+    border: 1px solid #ccc;
+}
+
+div.score.danger {
+    background: #f2dede;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+}
+
+div.score.warning {
+    background: #FAE6CA;
+    color: #f0ad4e;
+    border: 1px solid #f0ad4e;
+}
+
+div.score.success {
+    background: #dff0d8;
+    color: #449d44;
+    border: 1px solid #398439;
+}
+
+/* Overriding xsltforms calander styles */
+.calendar .names {
+    background-image: none;
+    background: #ddd;
+}
+
+.calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+    background-image: none;
+}
+
+
+.integer input[type="text"] {
+    max-width: 50px;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 15px;
+}
+
+/* Used to make XSLTForms debugging views compatible with LTH Forms layout*/
+#xsltforms_debug {
+    position: fixed;
+    top: 0px;
+    height: 153px;
+    width: 600px;
+    right: 0px;
+    z-index: 99;
+    background: white;
+    overflow: hidden;
+    border-left: 2px solid #ef1b1b;
+}
+		
+#xsltforms_console {
+    position: fixed;
+    top: 153px;
+    width: 600px;
+    bottom: 0px;
+    right: 0px;
+    padding-left: 3px;
+    background: white;
+	font-size			: 0.8em;
+	color				: #888888;
+	border-top			: thin solid #888888;
+	display: none;
+    z-index: 99;
+    overflow: auto;
+    border-left: 2px solid #ef1b1b;
+}
+
+@media (max-width: 991px) {
+    #content {
+        top: 144px;
+    }
+
+    #composite-form-rhs {
+        width: 100%;
+        top: 62px;
+        left:0px;
+        padding-left: 0px;
+    }
+
+    .delete-btn {
+        width: 15%;
+    }
+
+    .selected-btn {
+        width: 85%;
+    }
+}
