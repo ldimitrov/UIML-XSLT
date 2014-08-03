@@ -20,6 +20,7 @@
             <property part-name="firstNameOutput" name="label">Output first name:</property>
             <property part-name="lastNameOutput" name="label">Output last name:</property>
             <property part-name="b1" name="label">Submit</property>
+            <property part-name="b1" name="style">btn btn-danger</property>
         </style>
         <behavior>
             <rule>

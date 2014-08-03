@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiml>
   <interface>
-    <structure>    
+    <structure> 
+      <part class="Container" id="c2">
+          <part class="H1" id="h1"/>
+          <part class="ImageButton" id="img"/>
+      </part>
       <part class="Container" id="c1">
         <part class="Row" id="inputRow">
           <part class="TextInput" id="input"/>
@@ -18,13 +22,13 @@
           <part class="Button" id="b6"/>
           <part class="Button" id="multiplication"/>
         </part>
-        <part class="Row" id="thirdRow">
+        <part class="Col" id="thirdRow">
           <part class="Button" id="b1"/>
           <part class="Button" id="b2"/>
           <part class="Button" id="b3"/>
           <part class="Button" id="minus"/>
         </part>
-        <part class="Row" id="forthRow">
+        <part class="Col" id="forthRow">
           <part class="Button" id="b0"/>
           <part class="Button" id="clear"/>
           <part class="Button" id="equals"/>
@@ -33,6 +37,12 @@
       </part> 
     </structure>
     <style>
+      <property part-name="img" alt="this is alt" src="button.png"/>
+      <property part-name="h1" name="label">UIML Calculator</property>
+      <property part-name="firstRow" name="style">col-md-3</property>
+      <property part-name="secondRow" name="style">col-md-3</property>
+      <property part-name="thirdRow" name="style">col-md-3</property>
+      <property part-name="forthRow" name="style">col-md-3</property>
       <property part-name="input" name="label"></property>
       <property part-name="b0" name="label">0</property>
       <property part-name="b1" name="label">1</property>

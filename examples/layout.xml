@@ -2,7 +2,7 @@
 <uiml>
     <interface>
         <structure>
-            <part class="RelativeLayout" id="rl1">
+            <part class="Container" id="rl1">
                 <part class="div" id="div1">
                     <part class="Anchor" id="link1">
                         <part class="Image" id="image1"/> 
@@ -29,6 +29,8 @@
             <property part-name="cb1" name="label">Favourite Ice Cream</property>
             <property part-name="item1" name="label">Vanilla</property>
             <property part-name="item2" name="label">Chocholate</property>
+            <property part-name="r1" name="label">Male</property>
+            <property part-name="r2" name="label">Female</property>
         </style>
     </interface>
     <peers>

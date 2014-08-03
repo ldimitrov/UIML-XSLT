@@ -37,5 +37,15 @@
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
+    
+    <xsl:key name="columnStyle" match="property[@name='style']" use="@part-name"/>
+    <xsl:template match="part[@class='Col']">
+        <xsl:element name="div">
+            <xsl:attribute name="class">
+                <xsl:value-of select="key('columnStyle', @id)"/>
+            </xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
 </xsl:stylesheet>
 
