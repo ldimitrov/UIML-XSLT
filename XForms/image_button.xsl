@@ -11,41 +11,36 @@
     <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
     <xsl:key name="appearanceAttribute" match="property[@name='appearance']" use="@part-name"/>
     <xsl:key name="buttonHint" match="property[@name='hint']" use="@part-name"/>
-    
-    <xsl:key name="buttonLabels_single" match="property[@label]" use="@part-name"/>
-    <xsl:key name="altAttribute_single" match="property[@alt]" use="@part-name"/>
-    <xsl:key name="imageSource_single" match="property[@src]" use="@part-name"/>
-    <xsl:key name="appearanceAttribute_single" match="property[@appearance]" use="@part-name"/>
-    <xsl:key name="buttonHint_single" match="property[@hint]" use="@part-name"/>
-    
+    <!-- Parts that have all attributes in a single <property> tag -->
+    <xsl:key name="buttonAttributes_single" match="property" use="@part-name"/>
     <!-- Buttons which have an @id corresponding to a style/property @part-name
          In Single property line or Multiple property lines -->  
     <xsl:template match="part[@class='ImageButton']">
         <xf:trigger id="{@id}">
             <xsl:attribute name="appearance">
-                <xsl:value-of select="key('appearanceAttribute_single', @id)/@appearance"/>
+                <xsl:value-of select="key('buttonAttributes_single', @id)/@appearance"/>
                 <xsl:value-of select="key('appearanceAttribute', @id)"/>
             </xsl:attribute>            
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
             <xf:label>
-                <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
+                <xsl:value-of select="key('buttonAttributes_single', @id)/@label"/>
                 <xsl:value-of select="key('buttonLabels', @id)"/>
                 <xsl:value-of select="key('Contents', @id)/@value"/>
             </xf:label>
             <img>
                 <xsl:attribute name="src">
-                    <xsl:value-of select="key('imageSource_single', @id)/@src"/>
+                    <xsl:value-of select="key('buttonAttributes_single', @id)/@src"/>
                     <xsl:value-of select="key('imageSource', @id)"/>
                     <xsl:value-of select="key('Contents', @id)/@src"/>
                 </xsl:attribute>
                 <xsl:attribute name="alt">
-                    <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
+                    <xsl:value-of select="key('buttonAttributes_single', @id)/@alt"/>
                     <xsl:value-of select="key('altAttribute', @id)"/>
                     <xsl:value-of select="key('Contents', @id)/@alt"/>
                 </xsl:attribute>
             </img>
             <xf:hint>
-                <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>
+                <xsl:value-of select="key('buttonAttributes_single', @id)/@hint"/>
                 <xsl:value-of select="key('buttonHint', @id)"/>
                 <xsl:value-of select="key('Contents', @id)/@hint"/>
             </xf:hint>
