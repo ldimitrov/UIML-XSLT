@@ -7,6 +7,7 @@
     
     <!-- UI -Checkboxes	-->
     <xsl:key name="radioLabels" match="property[@name='label']" use="@part-name"/>
+    <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:template match="part[@class='Radio'][key('radioLabels', @id)]">
         <xf:select1 appearance="full">
             <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>
@@ -25,23 +26,51 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
-            <xf:label>
-                <xsl:value-of select="key('radioLabels', @id)"/>
-            </xf:label>
+            <xsl:choose>
+                <xsl:when test="key('radioLabels', @id) != ''">
+                    <xf:label>
+                        <xsl:value-of select="key('radioLabels', @id)"/>
+                    </xf:label>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xf:label>
+                        <xsl:value-of select="key('Contents', @id)/@label"/>
+                    </xf:label>
+                </xsl:otherwise>
+            </xsl:choose>            
             <xsl:apply-templates select="*"/>
         </xf:select1>
     </xsl:template>
     
     <!-- Create <item> elements	-->
     <xsl:key name="radioItemLabels" match="property[@name='label']" use="@part-name"/>
-    <xsl:template match="part[@class='RadioItem'][key('radioItemLabels', @id)]">
+    <xsl:key name="radioItemValues" match="property[@name='value']" use="@part-name"/>
+    <xsl:template match="part[@class='RadioItem']">
         <xf:item>
-            <xf:label>
-                <xsl:value-of select="key('radioItemLabels', @id)"/>
-            </xf:label>
-            <xf:value>
-                <xsl:value-of select="@value"/>
-            </xf:value>
+            <xsl:choose>
+                <xsl:when test="key('radioItemLabels', @id) != ''">
+                    <xf:label>
+                        <xsl:value-of select="key('radioItemLabels', @id)"/>
+                    </xf:label>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xf:label>
+                        <xsl:value-of select="key('Contents', @id)/@label"/>
+                    </xf:label>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:choose>
+                <xsl:when test="key('radioItemLabels', @id) != ''">
+                    <xf:value>
+                        <xsl:value-of select="key('radioItemValues', @id)"/>
+                    </xf:value>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xf:value>
+                        <xsl:value-of select="key('Contents', @id)/@value"/>
+                    </xf:value>
+                </xsl:otherwise>
+            </xsl:choose>
         </xf:item>        
     </xsl:template>
 </xsl:stylesheet>
