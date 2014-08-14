@@ -4,7 +4,8 @@
     xmlns:xf="http://www.w3.org/2002/xforms"
     exclude-result-prefixes="xs"
     version="2.0">
-        
+    
+    <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:key name="buttonLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="altAttribute" match="property[@name='alt']" use="@part-name"/>
     <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
@@ -29,20 +30,24 @@
             <xf:label>
                 <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
                 <xsl:value-of select="key('buttonLabels', @id)"/>
+                <xsl:value-of select="key('Contents', @id)/@value"/>
             </xf:label>
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="key('imageSource_single', @id)/@src"/>
                     <xsl:value-of select="key('imageSource', @id)"/>
+                    <xsl:value-of select="key('Contents', @id)/@src"/>
                 </xsl:attribute>
                 <xsl:attribute name="alt">
                     <xsl:value-of select="key('altAttribute_single', @id)/@alt"/>
                     <xsl:value-of select="key('altAttribute', @id)"/>
+                    <xsl:value-of select="key('Contents', @id)/@alt"/>
                 </xsl:attribute>
             </img>
             <xf:hint>
                 <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>
                 <xsl:value-of select="key('buttonHint', @id)"/>
+                <xsl:value-of select="key('Contents', @id)/@hint"/>
             </xf:hint>
         </xf:trigger>
     </xsl:template>
