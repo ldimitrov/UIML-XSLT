@@ -170,6 +170,7 @@
     </xsl:template>
     <xsl:template match="peers"/>
     <xsl:template match="style"/>        
+    <xsl:template match="content"/>
     <xsl:template match="behavior"/>
 
     <!-- Indentation and remove white spaces -->

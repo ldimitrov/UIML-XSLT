@@ -7,10 +7,10 @@
     
     <!-- UI -Checkboxes	-->
     <xsl:key name="checkBoxLabels" match="property[@name='label']" use="@part-name"/>
+    <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:template match="part[@class='Checkbox'][key('checkBoxLabels', @id)]">
         <xf:select appearance="full">
-            <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>
-            
+            <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>            
             <!-- Create Reference to the XForms instance -->
             <xsl:attribute name="ref">
                 <xsl:choose>
@@ -25,23 +25,52 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
-            <xf:label>
-                <xsl:value-of select="key('checkBoxLabels', @id)"/>
-            </xf:label>
+            <xsl:choose>
+                <xsl:when test="key('checkBoxItemLabels', @id) != ''">
+                    <xf:label>
+                        <xsl:value-of select="key('checkBoxLabels', @id)"/>
+                    </xf:label>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xf:label>
+                        <xsl:value-of select="key('Contents', @id)/@value"/>
+                    </xf:label>
+                </xsl:otherwise>
+            </xsl:choose>            
             <xsl:apply-templates select="*"/>
         </xf:select>
     </xsl:template>
     
     <!-- Create <item> elements	-->
     <xsl:key name="checkBoxItemLabels" match="property[@name='label']" use="@part-name"/>
-    <xsl:template match="part[@class='CheckboxItem'][key('checkBoxItemLabels', @id)]">
+    <xsl:key name="checkBoxItemValues" match="property[@value]" use="@part-name"/>
+    <xsl:key name="Contents" match="constant" use="@id"/>
+    <xsl:template match="part[@class='CheckboxItem']">
         <xf:item>
-            <xf:label>
-                <xsl:value-of select="key('checkBoxItemLabels', @id)"/>
-            </xf:label>
-            <xf:value>
-                <xsl:value-of select="@value"/>
-            </xf:value>
+            <xsl:choose>
+                <xsl:when test="key('checkBoxItemLabels', @id) != ''">
+                    <xf:label>
+                        <xsl:value-of select="key('checkBoxItemLabels', @id)"/>
+                    </xf:label>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xf:label>
+                        <xsl:value-of select="key('Contents', @id)/@value"/>
+                    </xf:label>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:choose>
+                <xsl:when test="key('checkBoxItemValues', @id) != ''">
+                    <xf:value>
+                        <xsl:value-of select="key('checkBoxItemValues', @id)"/>
+                    </xf:value>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xf:value>
+                        <xsl:value-of select="key('Contents', @id)/@value"/>
+                    </xf:value>
+                </xsl:otherwise>
+            </xsl:choose>
         </xf:item>        
     </xsl:template>
 </xsl:stylesheet>
