@@ -7,7 +7,7 @@
     version="2.0">
     
     <xsl:key name="buttonStyles" match="property[@name='style']" use="@part-name"/>
-    
+    <xsl:key name="Contents" match="constant" use="@id"/>
     <!-- UI - Button -->
     <xsl:key name="buttonLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="buttonHint" match="property[@name='hint']" use="@part-name"/>
@@ -34,6 +34,7 @@
             <xsl:element name="xf:label">
                 <xsl:value-of select="key('buttonLabels', @id)"/>
                 <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
+                <xsl:value-of select="key('Contents', @id)/@value"/>
             </xsl:element>
             <xsl:choose>
                 <xsl:when test="key('buttonHint', @id) != ''">
@@ -43,9 +44,14 @@
                 </xsl:when>
                 <xsl:when test="key('buttonHint_single', @id)/@hint != ''">
                     <xsl:element name="xf:hint">                        
-                        <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>
+                        <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>                        
                     </xsl:element>
                 </xsl:when>
+                <xsl:otherwise>
+                    <xsl:element name="xf:hint">                        
+                        <xsl:value-of select="key('Contents', @id)/@hint"/>                       
+                    </xsl:element>                    
+                </xsl:otherwise>
             </xsl:choose>
         </xsl:element>
     </xsl:template>
