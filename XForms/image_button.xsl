@@ -16,17 +16,39 @@
     <!-- Buttons which have an @id corresponding to a style/property @part-name
          In Single property line or Multiple property lines -->  
     <xsl:template match="part[@class='ImageButton']">
-        <xf:trigger id="{@id}">
-            <xsl:attribute name="appearance">
-                <xsl:value-of select="key('buttonAttributes_single', @id)/@appearance"/>
-                <xsl:value-of select="key('appearanceAttribute', @id)"/>
-            </xsl:attribute>            
+        <xf:trigger id="{@id}">            
+            <xsl:choose>
+                <xsl:when test="key('buttonAttributes_single', @id)/@appearance != ''">
+                    <xsl:attribute name="appearance">
+                        <xsl:value-of select="key('buttonAttributes_single', @id)/@appearance"/>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="key('appearanceAttribute', @id) != ''">
+                    <xsl:attribute name="appearance">                   
+                        <xsl:value-of select="key('appearanceAttribute', @id)"/>
+                    </xsl:attribute>
+                </xsl:when>                
+            </xsl:choose>
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
-            <xf:label>
-                <xsl:value-of select="key('buttonAttributes_single', @id)/@label"/>
-                <xsl:value-of select="key('buttonLabels', @id)"/>
-                <xsl:value-of select="key('Contents', @id)/@value"/>
-            </xf:label>
+            
+            <xsl:choose>
+                <xsl:when test="key('buttonAttributes_single', @id)/@label != ''">
+                    <xsl:element name="xf:label">
+                        <xsl:value-of select="key('buttonAttributes_single', @id)/@label"/>
+                    </xsl:element>
+                </xsl:when>
+                <xsl:when test="key('buttonLabels', @id) != ''">
+                    <xsl:element name="xf:label">
+                        <xsl:value-of select="key('buttonLabels', @id)"/>
+                    </xsl:element>
+                </xsl:when>
+                <xsl:when test="key('Contents', @id)/@label != ''">
+                    <xsl:element name="xf:label">
+                        <xsl:value-of select="key('Contents', @id)/@label"/>
+                    </xsl:element>
+                </xsl:when>
+            </xsl:choose>
+            
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="key('buttonAttributes_single', @id)/@src"/>
@@ -39,11 +61,25 @@
                     <xsl:value-of select="key('Contents', @id)/@alt"/>
                 </xsl:attribute>
             </img>
-            <xf:hint>
-                <xsl:value-of select="key('buttonAttributes_single', @id)/@hint"/>
-                <xsl:value-of select="key('buttonHint', @id)"/>
-                <xsl:value-of select="key('Contents', @id)/@hint"/>
-            </xf:hint>
+            
+            <xsl:choose>
+                <xsl:when test="key('buttonAttributes_single', @id)/@hint != ''">
+                    <xsl:element name="xf:hint">
+                        <xsl:value-of select="key('buttonAttributes_single', @id)/@hint"/>
+                    </xsl:element>
+                </xsl:when>
+                <xsl:when test="key('buttonHint', @id) != ''">
+                    <xsl:element name="xf:hint">
+                        <xsl:value-of select="key('buttonHint', @id)"/>
+                    </xsl:element>
+                </xsl:when>
+                <xsl:when test="key('Contents', @id)/@hint != ''">
+                    <xsl:element name="xf:hint">
+                        <xsl:value-of select="key('Contents', @id)/@hint"/>
+                    </xsl:element>
+                </xsl:when>
+            </xsl:choose>
+            
         </xf:trigger>
     </xsl:template>
     

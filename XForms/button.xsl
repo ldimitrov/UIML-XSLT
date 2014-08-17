@@ -15,10 +15,10 @@
     <xsl:key name="buttonHint_single" match="property[@hint]" use="@part-name"/>
 <!--    <xsl:key name="buttonActions" match="action/property[@name='text']" use="@part-name"/>-->
     <!-- All <part> elements that do not match the other two templates -->
-    <xsl:template match="part"/>
+<!--    <xsl:template match="part"/>-->
     
     <!-- Buttons which have an @id corresponding to a style/property @part-name -->    
-    <xsl:template match="part[@class='Button']"><!-- [key('buttonActions', @id)]-->
+    <xsl:template match="part[@class='Button']">
         <xsl:element name="xf:trigger">
             <xsl:choose>
                 <xsl:when test="key('buttonStyles', @id) != ''">
@@ -30,12 +30,24 @@
             
             <xsl:attribute name="id">
                 <xsl:value-of select="@id | @size | @style"/>
-            </xsl:attribute>
-            <xsl:element name="xf:label">
-                <xsl:value-of select="key('buttonLabels', @id)"/>
-                <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>
-                <xsl:value-of select="key('Contents', @id)/@value"/>
-            </xsl:element>
+            </xsl:attribute>            
+                <xsl:choose>
+                    <xsl:when test="key('buttonLabels', @id) != ''">
+                        <xsl:element name="xf:label">
+                            <xsl:value-of select="key('buttonLabels', @id)"/>
+                        </xsl:element>
+                    </xsl:when>
+                    <xsl:when test="key('buttonLabels_single', @id)/@label != ''">
+                        <xsl:element name="xf:label">                     
+                            <xsl:value-of select="key('buttonLabels_single', @id)/@label"/>                   
+                        </xsl:element>
+                    </xsl:when>
+                    <xsl:when test="key('Contents', @id)/@label != ''">
+                        <xsl:element name="xf:label">                        
+                            <xsl:value-of select="key('Contents', @id)/@label"/>                     
+                        </xsl:element>                    
+                    </xsl:when>
+                </xsl:choose>
             <xsl:choose>
                 <xsl:when test="key('buttonHint', @id) != ''">
                     <xsl:element name="xf:hint">
@@ -47,11 +59,11 @@
                         <xsl:value-of select="key('buttonHint_single', @id)/@hint"/>                        
                     </xsl:element>
                 </xsl:when>
-                <xsl:otherwise>
+                <xsl:when test="key('Contents', @id)/@hint != ''">
                     <xsl:element name="xf:hint">                        
                         <xsl:value-of select="key('Contents', @id)/@hint"/>                       
                     </xsl:element>                    
-                </xsl:otherwise>
+                </xsl:when>
             </xsl:choose>
         </xsl:element>
     </xsl:template>

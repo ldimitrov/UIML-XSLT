@@ -8,7 +8,7 @@
     <!-- UI -Checkboxes	-->
     <xsl:key name="radioLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
-    <xsl:template match="part[@class='Radio'][key('radioLabels', @id)]">
+    <xsl:template match="part[@class='Radio']">
         <xf:select1 appearance="full">
             <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>
             
