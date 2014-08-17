@@ -15,13 +15,27 @@
             </part> 
         </structure>
         <style>
-            <property part-name="firstName" name="label">Enter your first name:</property>
-            <property part-name="lastName" name="label">Enter your last name:</property>
-            <property part-name="firstNameOutput" name="label">Output first name:</property>
-            <property part-name="lastNameOutput" name="label">Output last name:</property>
+            <property part-name="firstName">
+                <reference constant-name="firstName"/>
+            </property>
+            <property part-name="lastName">
+                <reference constant-name="lastName"/>
+            </property>
+            <property part-name="firstNameOutput">
+                <reference constant-name="firstNameOutput"/>
+            </property>
+            <property part-name="lastNameOutput">
+                <reference constant-name="lastNameOutput"/>
+            </property>
             <property part-name="b1" name="label">Submit</property>
             <property part-name="b1" name="style">btn btn-danger</property>
         </style>
+        <content>
+            <constant id="firstName" label="Enter your first name:"/>
+            <constant id="lastName" label="Enter your last name:"/>
+            <constant id="firstNameOutput" label="Output first name:"/>
+            <constant id="lastNameOutput" label="Output last name:"/>
+        </content>
         <behavior>
             <rule>
                 <condition>

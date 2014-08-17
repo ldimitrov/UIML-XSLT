@@ -23,19 +23,65 @@
             <part class="Image" id="image3"/>  
         </structure>
         <style>
-            <property part-name="h11" name="text">This is a h1 heading</property>
-            <property part-name="h21" name="text">This is a h2 heading</property>
-            <property part-name="h31" name="text">This is a h3 heading</property>
-            <property part-name="h41" name="text">This is a h4 heading</property>
-            <property part-name="h51" name="text">This is a h5 heading</property>
-            <property part-name="h61" name="text">This is a h6 heading</property>
-            <property part-name="link1" name="href">https://www.link1.com/</property>
+            <!-- Contents inside the <style> tag still work if uncommented. When using them, 
+        references from <style> to <content> tag should be commented out instead. -->
+            
+            <!--  <property part-name="h11" name="text">This is a h1 heading</property>
+            <property part-name="h21" name="value">This is a h2 heading</property>
+            <property part-name="h31" name="value">This is a h3 heading</property>
+            <property part-name="h41" name="value">This is a h4 heading</property>
+            <property part-name="h51" name="value">This is a h5 heading</property>
+            <property part-name="h61" name="value">This is a h6 heading</property>
+           <property part-name="link1" name="href">https://www.link1.com/</property>
             <property part-name="link1" name="text">link text</property>  
-            <property part-name="link2" href="https://www.link2.com/" text="Click Here"/>
-            <property part-name="image3" alt="this is alt" src="image3.png"/>           
+            <property part-name="link2" href="https://www.link2.com/" label="Click Here"/>
+            <property part-name="image3" alt="this is alt" src="image3.png"/>          
             <property part-name="image1" name="src">image1.png</property>
             <property part-name="image1" name="alt">PIC BUTTON</property>
+            --> 
+            <property part-name="h11">
+                <reference constant-name="h11"/>
+            </property>
+            <property part-name="h21">
+                <reference constant-name="h21"/>
+            </property>
+            <property part-name="h31">
+                <reference constant-name="h31"/>
+            </property>
+            <property part-name="h41">
+                <reference constant-name="h41"/>
+            </property>
+            <property part-name="h51">
+                <reference constant-name="h51"/>
+            </property>
+            <property part-name="h61">
+                <reference constant-name="h61"/>
+            </property>
+            <property part-name="link1">
+                <reference constant-name="link1"/>
+            </property>
+            <property part-name="link2">
+                <reference constant-name="link2"/>
+            </property>
+            <property part-name="image3">
+                <reference constant-name="image3"/>
+            </property>
+            <property part-name="image1">
+                <reference constant-name="image1"/>
+            </property>       
         </style>
+        <content>
+            <constant id="link1" label="link1 text" href="https://www.link1.com/"/>
+            <constant id="link2" label="Click Here" href="https://www.link2.com/"/>
+            <constant id="image1" alt="PIC BUTTON" src="image1.png"/>
+            <constant id="image3" alt="this is alt" src="image3.png"/>
+            <constant id="h11" value="This is a h1 heading"/>
+            <constant id="h21" value="This is a h2 heading"/>
+            <constant id="h31" value="This is a h3 heading"/>
+            <constant id="h41" value="This is a h4 heading"/>
+            <constant id="h51" value="This is a h5 heading"/>
+            <constant id="h61" value="This is a h6 heading"/>
+        </content>
     </interface>
     <peers>
     </peers>

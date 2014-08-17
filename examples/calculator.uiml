@@ -4,7 +4,6 @@
     <structure> 
       <part class="Container" id="c2">
           <part class="H1" id="h1"/>
-          <part class="ImageButton" id="img"/>
       </part>
       <part class="Container" id="c1">
         <part class="Row" id="inputRow">
@@ -37,14 +36,65 @@
       </part> 
     </structure>
     <style>
-      <property part-name="img" alt="this is alt" src="button.png"/>
-      <property part-name="h1" name="label">UIML Calculator</property>
+      <property part-name="h1" name="value">UIML Calculator</property>
       <property part-name="firstRow" name="style">col-md-3</property>
       <property part-name="secondRow" name="style">col-md-3</property>
       <property part-name="thirdRow" name="style">col-md-3</property>
       <property part-name="forthRow" name="style">col-md-3</property>
       <property part-name="input" name="label"></property>
-      <property part-name="b0" name="label">0</property>
+      <property part-name="b0">
+        <reference constant-name="b0"/>
+      </property>
+      <property part-name="b1">
+        <reference constant-name="b1"/>
+      </property>
+      <property part-name="b2">
+        <reference constant-name="b2"/>
+      </property>
+      <property part-name="b3">
+        <reference constant-name="b3"/>
+      </property>
+      <property part-name="b4">
+        <reference constant-name="b4"/>
+      </property>
+      <property part-name="b5">
+        <reference constant-name="b5"/>
+      </property>
+      <property part-name="b6">
+        <reference constant-name="b6"/>
+      </property>
+      <property part-name="b7">
+        <reference constant-name="b7"/>
+      </property>
+      <property part-name="b8">
+        <reference constant-name="b8"/>
+      </property>
+      <property part-name="b9">
+        <reference constant-name="b9"/>
+      </property>
+      <property part-name="multiplication">
+        <reference constant-name="multiplication"/>
+      </property>
+      <property part-name="division">
+        <reference constant-name="division"/>
+      </property>
+      <property part-name="plus">
+        <reference constant-name="plus"/>
+      </property>
+      <property part-name="minus">
+        <reference constant-name="minus"/>
+      </property>
+      <property part-name="clear">
+        <reference constant-name="clear"/>
+      </property>
+      <property part-name="equals">
+        <reference constant-name="equals"/>
+      </property>
+      
+      <!-- Contents inside the <style> tag still work if uncommented. When using them, 
+        references from <style> to <content> tag should be commented out instead. -->
+      
+      <!--<property part-name="b0" name="label">0</property>
       <property part-name="b1" name="label">1</property>
       <property part-name="b2" name="label">2</property>
       <property part-name="b3" name="label">3</property>
@@ -59,7 +109,8 @@
       <property part-name="minus" name="label">-</property>      
       <property part-name="plus" name="label">+</property>      
       <property part-name="clear" name="label">C</property>
-      <property part-name="equals" name="label">=</property>
+      <property part-name="equals" name="label">=</property>-->
+      
       <property part-name="b0" name="style">btn btn-primary</property>
       <property part-name="b1" name="style">btn btn-primary</property> 
       <property part-name="b2" name="style">btn btn-primary</property> 
@@ -75,8 +126,28 @@
       <property part-name="minus" name="style">btn btn-warning</property>
       <property part-name="plus" name="style">btn btn-warning</property>
       <property part-name="clear" name="style">btn btn-danger</property>
+      <property part-name="clear" name="appearance">full</property>
       <property part-name="equals" name="style">btn btn-success</property>
+      <property part-name="equals" style="btn btn-success" appearance="full"/>
     </style>
+    <content>
+      <constant id="b0" label="0"/>
+      <constant id="b1" label="1"/>
+      <constant id="b2" label="2"/>
+      <constant id="b3" label="3"/>
+      <constant id="b4" label="4"/>
+      <constant id="b5" label="5"/>
+      <constant id="b6" label="6"/>
+      <constant id="b7" label="7"/>
+      <constant id="b8" label="8"/>
+      <constant id="b9" label="9"/>
+      <constant id="division" label="/"/>
+      <constant id="multiplication" label="*"/>
+      <constant id="minus" label="-"/>
+      <constant id="plus" label="+"/>
+      <constant id="equals" label="="/>
+      <constant id="clear" label="C"/>
+    </content>
     <behavior>
     </behavior>
   </interface>
