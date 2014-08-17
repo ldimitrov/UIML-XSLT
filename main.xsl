@@ -74,18 +74,36 @@
                                     <xsl:element name="{@id}"/>                                    
                                 </xsl:for-each>                                
                             </xsl:if>
+                            <xsl:if test="//part[@class='DatePicker']">
+                                <xsl:for-each select="//part[@class='DatePicker']">
+                                    <xsl:element name="{@id}"/>                                    
+                                </xsl:for-each>                                
+                            </xsl:if>
                         </xsl:element>
                     </xf:instance>
                     <!-- XForms binding -->
                     <xsl:for-each select="uiml/interface/behavior/rule/condition/event[@class='binding']">
                         <xf:bind>
-                            <xsl:attribute name="id">
+                            <!--<xsl:attribute name="id">
                                 <xsl:value-of select="@part-name"/>
-                            </xsl:attribute>
+                            </xsl:attribute>-->
                             <!-- Figure out the exact path of the instance inside the model declaration -->
-                            <xsl:attribute name="nodeset">
-                                <xsl:value-of select="@part-name"/>
-                            </xsl:attribute>
+                            <xsl:choose>
+                                <xsl:when test="//part[@class='DatePicker']">
+                                    <xsl:attribute name="nodeset">
+                                        <xsl:value-of select="@part-name"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="type">
+                                        <xsl:text>xs:date</xsl:text>
+                                    </xsl:attribute>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:attribute name="nodeset">
+                                        <xsl:value-of select="@part-name"/>
+                                    </xsl:attribute>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            
                         </xf:bind>
                     </xsl:for-each>
                     <!-- XForms submission -->
@@ -145,6 +163,9 @@
     
     <!-- UI - XForms Radio Button stylesheet - <xf:select1/> -->
     <xsl:include href="XForms/radio.xsl"/>
+    
+    <!-- UI - XForms Date Picker stylesheet - <xf:input/> -->
+    <xsl:include href="XForms/date.xsl"/>
     
     <!-- UI - XForms label element - <xf:label/> -->
     <xsl:include href="XForms/label.xsl"/>
