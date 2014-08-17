@@ -1,0 +1,95 @@
+<uiml>
+  <interface>
+    <structure>
+      <part class="Button" id="buttonENG"/>
+      <part class="Button" id="buttonDE"/>
+      <part class="ImageButton" id="imgB1"/>
+      <part class="Label" id="text"/>
+      <part class="div" id="div1">
+        <part class="Checkbox" id="cb1">
+          <part class="CheckboxItem" id="item1"/>
+          <part class="CheckboxItem" id="item2"/>
+        </part>
+      </part>
+      <part class="div" id="div2">
+        <part class="Radio" id="check">
+          <part class="RadioItem" id="chItem1"/>
+          <part class="RadioItem" id="chItem2"/>
+          <part class="RadioItem" id="chItem3"/>
+        </part>
+      </part>
+    </structure>
+    <style>
+      <property part-name="buttonENG" name="label">English</property>
+      <property part-name="buttonDE" name="label">Deutsch</property>-->
+      <property part-name="imgB1">
+        <reference constant-name="imgB1"/>
+      </property>
+      <property part-name="buttonDE">
+        <reference constant-name="buttonDE"/>
+      </property>
+      <!--<property part-name="text" name="label"></property>-->
+      <property part-name="text">
+        <reference constant-name="text"/>
+      </property>
+      <property part-name="cb1">
+        <reference constant-name="cb1"/>
+      </property>
+      <property part-name="item1">
+        <reference constant-name="item1"/>
+      </property>
+      <property part-name="item2">
+        <reference constant-name="item2"/>
+      </property>
+      <!--<property part-name="check" name="label">Choose movie to watch:</property>
+      <property part-name="chItem1" name="value">matrix</property>
+      <property part-name="chItem2" name="value">lotr</property>
+      <property part-name="chItem3" name="value">terminator</property>
+      <property part-name="chItem1" name="label">The Matrix</property>
+      <property part-name="chItem2" name="label">Lord of the Rings</property>
+      <property part-name="chItem3" name="label">The Terminator</property>-->
+    </style>
+    <!--<content>
+      <constant id="cb1" label="Favourite Ice Cream?"/>
+      <constant id="item1" label="Vanilla" value="vanilla"/>
+      <constant id="item2" label="Chocholate" value="chocholate"/>
+    </content>-->
+    <content id="English">
+      <constant id="imgB1" label="Image Button" alt="Alternative text" src="button.png"/>
+      <constant id="text" value="English text goes here"/>
+      <constant id="cb1" label="Favourite Ice Cream?"/>
+      <constant id="item1" label="Vanilla" value="vanilla"/>
+      <constant id="item2" label="Chocholate" value="chocholate"/>
+    </content>
+    <content id="German">
+      <constant id="text" value="German text goes here"/>
+      <constant id="cb1" label="Lieblings-Eis?"/>
+      <constant id="item1" label="Vanille" value="vanilla"/>
+      <constant id="item2" label="Schokolade" value="chocholate"/>
+    </content>
+    <behavior>
+      <rule>
+        <condition>
+          <event class="ButtonPressed" part-name="buttonENG"/>
+        </condition>
+        <action>
+          <!--1-->
+          <property part-name="b1" name="color">blue</property>
+          <!--2-->
+          <property part-name="b2" name="color">
+            <reference constant-name="green"/>
+          </property>
+          <!--3-->
+          <property part-name="b2" name="color"/>
+          <property part-name="b1" name="color"/>
+          <!--4-->
+          <property part-name="b3" name="color">
+            <call component-id="serverObject" method-id="getColor"/>
+          </property>
+        </action>
+      </rule>
+    </behavior>
+  </interface>
+  <peers>
+  </peers>
+</uiml>
