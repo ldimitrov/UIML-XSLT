@@ -8,7 +8,7 @@
     <xsl:key name="bindings" match="rule" use="condition/event[@class='binded']/@part-name"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:key name="textLabels" match="property[@name='label']" use="@part-name"/>
-    <xsl:template match="part[@class='TextOutput'][key('textLabels', @id)]">
+    <xsl:template match="part[@class='TextOutput']">
         <xf:output>
             <xsl:apply-templates select="@size | @style"/>
             <xsl:attribute name="class">row</xsl:attribute>
