@@ -4,7 +4,9 @@
     xmlns:xf="http://www.w3.org/2002/xforms" 
     exclude-result-prefixes="xs"
     version="2.0">
+    
     <xsl:key name="bindings" match="rule" use="condition/event[@class='binding']/@part-name"/>
+    <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:key name="textLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:template match="part[@class='TextInput'][key('textLabels', @id)]">
         <xf:input>
@@ -33,6 +35,7 @@
             </xsl:choose>
             <xf:label>
                 <xsl:value-of select="key('textLabels', @id)"/>
+                <xsl:value-of select="key('Contents', @id)/@label"/>
             </xf:label>
         </xf:input>
     </xsl:template>
