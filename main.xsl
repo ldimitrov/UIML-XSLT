@@ -157,6 +157,11 @@
     
     <!-- Include layout -->
     <xsl:include href="HTML/layout.xsl"/>
+    
+    <!-- Include HTML elements -->
+    <xsl:include href="HTML/containers.xsl"/>
+    <xsl:include href="HTML/anchor.xsl"/>
+    <xsl:include href="HTML/img.xsl"/>
        
     <!-- Ignore <uiml>, <interface>, <structure> and <peers> tags -->
     <xsl:template match="uiml">
