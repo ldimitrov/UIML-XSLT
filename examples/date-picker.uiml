@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+  <interface>
+    <structure>
+      <part class="Container" id="c1">           
+        <part class="H1" id="h1"/>
+        <part class="DatePicker" id="myDate"/>
+      </part>
+    </structure>
+    <style>
+      <property part-name="h1">
+        <reference constant-name="h1"/>
+      </property>
+      <property part-name="myDate">
+        <reference constant-name="myDate"/>
+      </property>
+    </style>
+    <content>
+      <constant id="h1" value="Date picker"/>
+      <constant id="myDate" label="Enter a date" hint="Click on the input box to expand a date-picker."/>
+    </content>
+    <behavior>
+      <rule>
+        <condition>
+          <event part-name="myDate" class="binding"/>                 
+        </condition>
+        <action>
+          <property part-name="myDate" bind="myDate"/>
+        </action>
+      </rule>
+    </behavior>
+  </interface>
+  <peers>
+  </peers>
+</uiml>
