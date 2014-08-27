@@ -98,6 +98,9 @@
                                     </xsl:attribute>
                                 </xsl:when>
                                 <xsl:otherwise>
+                                    <xsl:attribute name="id">
+                                        <xsl:value-of select="@part-name"/>
+                                    </xsl:attribute>
                                     <xsl:attribute name="nodeset">
                                         <xsl:value-of select="@part-name"/>
                                     </xsl:attribute>

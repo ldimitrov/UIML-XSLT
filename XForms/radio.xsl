@@ -5,7 +5,7 @@
     xmlns:xf="http://www.w3.org/2002/xforms" 
     version="2.0">
     
-    <!-- UI -Checkboxes	-->
+    <!-- UI - Radio buttons	-->
     <xsl:key name="radioLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:template match="part[@class='Radio']">

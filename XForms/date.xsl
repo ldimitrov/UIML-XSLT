@@ -7,14 +7,14 @@
         
     <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:key name="bindings" match="rule" use="condition/event[@class='binding']/@part-name"/>
-    <!-- UI - Button -->
+    <!-- UI - Date Picker -->
     <xsl:key name="inputStyles" match="property[@name='style']" use="@part-name"/>
     <xsl:key name="inputLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="inputHint" match="property[@name='hint']" use="@part-name"/>
     <xsl:key name="inputLabels_single" match="property[@label]" use="@part-name"/>
     <xsl:key name="inputHint_single" match="property[@hint]" use="@part-name"/>
     
-    <!-- Buttons which have an @id corresponding to a style/property @part-name -->    
+    <!-- Date Pickers which have an @id corresponding to a style/property @part-name -->    
     <xsl:template match="part[@class='DatePicker']">
         <xsl:element name="xf:input">
             <xsl:choose>
@@ -87,7 +87,7 @@
         
     </xsl:template>
     
-    <!-- Buttons which have a nested style/property with @name=label -->
+    <!-- Date Pickers which have a nested style/property with @name=label -->
     <xsl:template match="part[@class='DatePicker'][style/property[@name='label']]">
         <xf:input id="{@id}">
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>

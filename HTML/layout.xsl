@@ -5,6 +5,8 @@
     xmlns:xf="http://www.w3.org/2002/xforms"
     version="2.0">
     
+    <!-- UIML has <layout> element with constraints - explore it in the documentation page 42; -->
+    
     <!-- simple container layout by Bootstrap CSS -->
     <xsl:template match="part[@class='Container']">
         <xsl:element name="div">
