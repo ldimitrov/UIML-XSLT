@@ -10,6 +10,11 @@
     <xsl:key name="anchorText" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="anchorLink_single" match="property[@href]" use="@part-name"/>
     <xsl:key name="anchorText_single" match="property[@label]" use="@part-name"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="anchorLink" match="property[@name='href']" use="@id"/>
+    <xsl:key name="anchorText" match="property[@name='label']" use="@id"/>
+    <xsl:key name="anchorLink_single" match="property[@href]" use="@id"/>
+    <xsl:key name="anchorText_single" match="property[@label]" use="@id"/>
     <xsl:template match="part[@class='Anchor']">    
         <xsl:element name="a">
             <xsl:attribute name="href">

@@ -10,6 +10,11 @@
     <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
     <xsl:key name="altAttribute_single" match="property[@alt]" use="@part-name"/>
     <xsl:key name="imageSource_single" match="property[@src]" use="@part-name"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="altAttribute" match="property[@name='alt']" use="@id"/>
+    <xsl:key name="imageSource" match="property[@name='src']" use="@id"/>
+    <xsl:key name="altAttribute_single" match="property[@alt]" use="@id"/>
+    <xsl:key name="imageSource_single" match="property[@src]" use="@id"/>
     <xsl:template match="part[@class='Image']">
         <xsl:element name="img">
             <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>

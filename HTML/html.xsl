@@ -15,6 +15,7 @@
     <!-- UI - HTML header tags - <h[0-6]/> -->
     <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:key name="headings" match="property[@name='value']" use="@part-name"/>
+    <xsl:key name="headings" match="property[@name='value']" use="@id"/>
     <xsl:template match="part[matches(@class, '^H[0-6]+$')]">
         <xsl:element name="h{translate(@class, 'H', '')}">
             <xsl:value-of select="key('headings', @id)"/>
@@ -36,6 +37,9 @@
     <!-- Intention to create Tab by switching content by case statements -->
     <xsl:key name="tabLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="tabContents" match="property[@select='case']" use="@part-name"/>    
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="tabLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="tabContents" match="property[@select='case']" use="@id"/>  
     <xsl:template match="part[@class='Tab']">
         <xf:trigger>
             <xsl:attribute name="appearance">minimal</xsl:attribute>
