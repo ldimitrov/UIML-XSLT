@@ -92,6 +92,7 @@
                                 <xsl:when test="//part[@class='DatePicker']">
                                     <xsl:attribute name="nodeset">
                                         <xsl:value-of select="@part-name"/>
+                                        <xsl:value-of select="@id"/>
                                     </xsl:attribute>
                                     <xsl:attribute name="type">
                                         <xsl:text>xs:date</xsl:text>
@@ -100,9 +101,11 @@
                                 <xsl:otherwise>
                                     <xsl:attribute name="id">
                                         <xsl:value-of select="@part-name"/>
+                                        <xsl:value-of select="@id"/>
                                     </xsl:attribute>
                                     <xsl:attribute name="nodeset">
                                         <xsl:value-of select="@part-name"/>
+                                        <xsl:value-of select="@id"/>
                                     </xsl:attribute>
                                 </xsl:otherwise>
                             </xsl:choose>

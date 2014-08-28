@@ -13,10 +13,14 @@
     <xsl:key name="buttonHint" match="property[@name='hint']" use="@part-name"/>
     <xsl:key name="buttonLabels_single" match="property[@label]" use="@part-name"/>
     <xsl:key name="buttonHint_single" match="property[@hint]" use="@part-name"/>
-<!--    <xsl:key name="buttonActions" match="action/property[@name='text']" use="@part-name"/>-->
-    <!-- All <part> elements that do not match the other two templates -->
-<!--    <xsl:template match="part"/>-->
     
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="buttonStyles" match="property[@name='style']" use="@id"/>
+    <xsl:key name="buttonLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="buttonHint" match="property[@name='hint']" use="@id"/>
+    <xsl:key name="buttonLabels_single" match="property[@label]" use="@id"/>
+    <xsl:key name="buttonHint_single" match="property[@hint]" use="@id"/>
+ 
     <!-- Buttons which have an @id corresponding to a style/property @part-name -->    
     <xsl:template match="part[@class='Button']">
         <xsl:element name="xf:trigger">
