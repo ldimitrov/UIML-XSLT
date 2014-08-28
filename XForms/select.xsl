@@ -6,6 +6,7 @@
     version="2.0">
     
     <xsl:key name="selectLabels" match="property[@name='label']" use="@part-name"/>
+    <xsl:key name="selectLabels" match="property[@name='label']" use="@id"/>
     <xsl:template match="part[@class='Select'][not(@multiple)][key('selectLabels', @id)]">
         <xf:select1 appearance="minimal">
             <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>

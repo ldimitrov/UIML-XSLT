@@ -13,6 +13,13 @@
     <xsl:key name="buttonHint" match="property[@name='hint']" use="@part-name"/>
     <!-- Parts that have all attributes in a single <property> tag -->
     <xsl:key name="buttonAttributes_single" match="property" use="@part-name"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="buttonLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="altAttribute" match="property[@name='alt']" use="@id"/>
+    <xsl:key name="imageSource" match="property[@name='src']" use="@id"/>
+    <xsl:key name="appearanceAttribute" match="property[@name='appearance']" use="@id"/>
+    <xsl:key name="buttonHint" match="property[@name='hint']" use="@id"/>
+    <xsl:key name="buttonAttributes_single" match="property" use="@id"/>
     <!-- Buttons which have an @id corresponding to a style/property @part-name
          In Single property line or Multiple property lines -->  
     <xsl:template match="part[@class='ImageButton']">

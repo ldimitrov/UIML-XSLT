@@ -8,6 +8,8 @@
     <!-- UI - Radio buttons	-->
     <xsl:key name="radioLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="radioLabels" match="property[@name='label']" use="@id"/>
     <xsl:template match="part[@class='Radio']">
         <xf:select1 appearance="full">
             <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>
@@ -45,6 +47,9 @@
     <!-- Create <item> elements	-->
     <xsl:key name="radioItemLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="radioItemValues" match="property[@name='value']" use="@part-name"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="radioItemLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="radioItemValues" match="property[@name='value']" use="@id"/>
     <xsl:template match="part[@class='RadioItem']">
         <xf:item>
             <xsl:choose>

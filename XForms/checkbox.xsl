@@ -7,6 +7,8 @@
     
     <!-- UI -Checkboxes	-->
     <xsl:key name="checkBoxLabels" match="property[@name='label']" use="@part-name"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="checkBoxLabels" match="property[@name='label']" use="@id"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:template match="part[@class='Checkbox']">
         <xf:select appearance="full">
@@ -45,6 +47,9 @@
     <!-- Create <item> elements	-->
     <xsl:key name="checkBoxItemLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="checkBoxItemValues" match="property[@name='value']" use="@part-name"/>
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="checkBoxItemLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="checkBoxItemValues" match="property[@name='value']" use="@id"/>
     <xsl:template match="part[@class='CheckboxItem']">
             <xf:item>
                 <xsl:choose>

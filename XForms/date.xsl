@@ -13,7 +13,13 @@
     <xsl:key name="inputHint" match="property[@name='hint']" use="@part-name"/>
     <xsl:key name="inputLabels_single" match="property[@label]" use="@part-name"/>
     <xsl:key name="inputHint_single" match="property[@hint]" use="@part-name"/>
-    
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="bindings" match="rule" use="condition/event[@class='binding']/@id"/>
+    <xsl:key name="inputStyles" match="property[@name='style']" use="@id"/>
+    <xsl:key name="inputLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="inputHint" match="property[@name='hint']" use="@id"/>
+    <xsl:key name="inputLabels_single" match="property[@label]" use="@id"/>
+    <xsl:key name="inputHint_single" match="property[@hint]" use="@id"/>
     <!-- Date Pickers which have an @id corresponding to a style/property @part-name -->    
     <xsl:template match="part[@class='DatePicker']">
         <xsl:element name="xf:input">

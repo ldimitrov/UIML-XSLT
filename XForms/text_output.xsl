@@ -8,6 +8,10 @@
     <xsl:key name="bindings" match="rule" use="condition/event[@class='binded']/@part-name"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
     <xsl:key name="textLabels" match="property[@name='label']" use="@part-name"/>
+    
+    <!-- Keys for matching ids only  -->
+    <xsl:key name="bindings" match="rule" use="condition/event[@class='binded']/@id"/>
+    <xsl:key name="textLabels" match="property[@name='label']" use="@id"/>
     <xsl:template match="part[@class='TextOutput']">
         <xf:output>
             <xsl:apply-templates select="@size | @style"/>
