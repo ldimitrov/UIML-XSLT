@@ -60,6 +60,7 @@
           <property id="b2" name="color">
             <reference constant-name="green"/>
           </property>
+          
           <!--3-->
           <property id="b2" name="color"/>
           <property id="b1" name="color"/>
