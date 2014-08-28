@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+  <interface>
+    <structure> 
+      <part class="Container" id="c2">
+          <part class="H1" id="h1"/>
+      </part>
+      <part class="Container" id="c1">
+        <part class="Row" id="inputRow">
+          <part class="TextInput" id="input"/>
+        </part>
+        <part class="Row" id="firstRow">
+          <part class="Button" id="b7"/>
+          <part class="Button" id="b8"/>
+          <part class="Button" id="b9"/>
+          <part class="Button" id="division"/>
+        </part>
+        <part class="Row" id="secondRow">
+          <part class="Button" id="b4"/>
+          <part class="Button" id="b5"/>
+          <part class="Button" id="b6"/>
+          <part class="Button" id="multiplication"/>
+        </part>
+        <part class="Col" id="thirdRow">
+          <part class="Button" id="b1"/>
+          <part class="Button" id="b2"/>
+          <part class="Button" id="b3"/>
+          <part class="Button" id="minus"/>
+        </part>
+        <part class="Col" id="forthRow">
+          <part class="Button" id="b0"/>
+          <part class="Button" id="clear"/>
+          <part class="Button" id="equals"/>
+          <part class="Button" id="plus"/>
+        </part>      
+      </part> 
+    </structure>
+    <style>
+      <property part-name="h1" name="value">UIML Calculator</property>
+      <property part-name="firstRow" name="style">col-md-3</property>
+      <property part-name="secondRow" name="style">col-md-3</property>
+      <property part-name="thirdRow" name="style">col-md-3</property>
+      <property part-name="forthRow" name="style">col-md-3</property>
+      <property part-name="input" name="label"></property>
+      
+      
+      <!-- Contents inside the <style> tag still work if uncommented. When using them, 
+        references from <style> to <content> tag should be commented out instead. -->
+      
+      <!--<property part-name="b0" name="label">0</property>
+      <property part-name="b1" name="label">1</property>
+      <property part-name="b2" name="label">2</property>
+      <property part-name="b3" name="label">3</property>
+      <property part-name="b4" name="label">4</property>
+      <property part-name="b5" name="label">5</property>
+      <property part-name="b6" name="label">6</property>
+      <property part-name="b7" name="label">7</property>
+      <property part-name="b8" name="label">8</property>
+      <property part-name="b9" name="label">9</property>
+      <property part-name="division" name="label">/</property>      
+      <property part-name="multiplication" name="label">*</property>      
+      <property part-name="minus" name="label">-</property>      
+      <property part-name="plus" name="label">+</property>      
+      <property part-name="clear" name="label">C</property>
+      <property part-name="equals" name="label">=</property>-->
+      
+      <property part-name="b0" name="style">btn btn-primary</property>
+      <property part-name="b1" name="style">btn btn-primary</property> 
+      <property part-name="b2" name="style">btn btn-primary</property> 
+      <property part-name="b3" name="style">btn btn-primary</property> 
+      <property part-name="b4" name="style">btn btn-primary</property> 
+      <property part-name="b5" name="style">btn btn-primary</property> 
+      <property part-name="b6" name="style">btn btn-primary</property> 
+      <property part-name="b7" name="style">btn btn-primary</property> 
+      <property part-name="b8" name="style">btn btn-primary</property> 
+      <property part-name="b9" name="style">btn btn-primary</property>       
+      <property part-name="division" name="style">btn btn-warning</property>
+      <property part-name="multiplication" name="style">btn btn-warning</property>
+      <property part-name="minus" name="style">btn btn-warning</property>
+      <property part-name="plus" name="style">btn btn-warning</property>
+      <property part-name="clear" name="style">btn btn-danger</property>
+      <property part-name="clear" name="appearance">full</property>
+      <property part-name="equals" name="style">btn btn-success</property>
+      <property part-name="equals" style="btn btn-success" appearance="full"/>
+    </style>
+    <content>
+      <constant id="b0" label="0"/>
+      <constant id="b1" label="1"/>
+      <constant id="b2" label="2"/>
+      <constant id="b3" label="3"/>
+      <constant id="b4" label="4"/>
+      <constant id="b5" label="5"/>
+      <constant id="b6" label="6"/>
+      <constant id="b7" label="7"/>
+      <constant id="b8" label="8"/>
+      <constant id="b9" label="9"/>
+      <constant id="division" label="/"/>
+      <constant id="multiplication" label="*"/>
+      <constant id="minus" label="-"/>
+      <constant id="plus" label="+"/>
+      <constant id="equals" label="="/>
+      <constant id="clear" label="C"/>
+    </content>
+    <behavior>
+    </behavior>
+  </interface>
+  <peers>
+  </peers>
+</uiml>

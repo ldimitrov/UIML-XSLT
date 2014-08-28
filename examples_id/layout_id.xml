@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+    <interface>
+        <structure>
+            <part class="Container" id="rl1">
+                <part class="div" id="div1">
+                    <part class="Anchor" id="link1">
+                        <part class="Image" id="image1"/> 
+                    </part>                    
+                </part>
+<!--                <part class="ImageButton" id="imgB1"/>  -->
+                <part class="Radio" id="radio1">
+                    <part class="RadioItem" id="r1" value="m"/>
+                    <part class="RadioItem" id="r2" value="f"/>
+                </part>
+                <part class="Checkbox" id="cb1">
+                    <part class="CheckboxItem" id="item1" value="vanilla"/>
+                    <part class="CheckboxItem" id="item2" value="chocholate"/>
+                </part>
+            </part>
+        </structure>
+        <style>
+            <property part-name="link1" name="href">https://www.link1.com/</property>
+            <property part-name="link1" name="text">link text</property>  
+            <property part-name="imgB1" label="this is a label" hint="this is a hint" alt="this is alt" src="button.png" appearance="xf:image"/>
+            <property part-name="radio1" name="label">Sex:</property>
+            <property part-name="image1" name="src">image1.png</property>
+            <property part-name="image1" name="alt">PIC BUTTON</property>
+            <property part-name="cb1" name="label">Favourite Ice Cream</property>
+            <property part-name="item1" name="label">Vanilla</property>
+            <property part-name="item2" name="label">Chocholate</property>
+            <property part-name="r1" name="label">Male</property>
+            <property part-name="r2" name="label">Female</property>
+        </style>
+    </interface>
+    <peers>
+    </peers>
+</uiml>
+
+
+

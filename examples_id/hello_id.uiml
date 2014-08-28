@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+    <interface>
+        <structure>            
+            <part class="Select" id="select1">
+                <part class="Option" id="option1" value="vanilla"/>
+                <part class="Option" id="option2"/>
+            </part>
+            <part class="div" id="div3">
+                <part class="Checkbox" id="cb1">
+                    <part class="CheckboxItem" id="item1" value="vanilla"/>
+                    <part class="CheckboxItem" id="item2" value="chocholate"/>
+                </part>
+            </part>
+            <part class="Radio" id="radio1">
+                <part class="RadioItem" id="r1" value="m"/>
+                <part class="RadioItem" id="r2" value="f"/>
+            </part>
+            <part class="HBox" id="hbox1">
+                <part class="span" id="div2">
+                    <part class="div" id="div3"></part>
+                </part>
+                <part class="Group" id="firstRow">
+                    <part class="Button" id="b1"/>
+                    <part class="Button" id="b2"/>
+                    <part class="Button" id="b3"/>
+                    <part class="Button" id="b4"/>
+                </part>
+            </part>
+            <part class="Group" id="secondRow">
+                <part class="Button" id="plus"/>
+                <part class="Button" id="minus"/>
+                <part class="Button" id="equals"/>
+            </part>
+            <part class="TextBox" id="result"/>
+            
+        </structure>
+        <style>
+            <property part-name="b4" label="button 4" hint="this is the 4th button"/>
+            <property part-name="b1" name="label">1</property>
+            <property part-name="b1" name="hint">this is the 1st button</property>
+            <property part-name="b2" name="label">2</property>
+            <property part-name="b3" name="label">3</property>
+            <property part-name="plus" name="label">+</property>
+            <property part-name="minus" name="label">-</property>
+            <property part-name="equals" name="label">=</property>            
+            <property part-name="result" name="label">Result</property>
+            <property part-name="select1" name="label">Choose item</property>
+            <property part-name="option1" name="label">Item 1</property>
+            <property part-name="option2" name="label">Item 2</property>
+            <property part-name="cb1" name="label">Favourite Ice Cream</property>
+            <property part-name="item1" name="label">Vanilla</property>
+            <property part-name="item2" name="label">Chocholate</property>
+            <property part-name="radio1" name="label">Sex:</property>
+            <property part-name="r1" name="label">Male</property>
+            <property part-name="r2" name="label">Female</property>
+        </style>
+        <behavior>
+            <rule>
+                <condition>
+                    <event part-name="b1" class="buttonPressed"/>                 
+                </condition>
+                <action>
+                    <property part-name="b1" name="text">
+                        <call name="onClick">
+                            <param><property part-name="result" name="text"/></param>
+                            <param><property part-name="b1" name="label"/></param>
+                        </call>
+                    </property>
+                </action>
+            </rule>
+            <rule>
+                <condition>
+                    <event part-name="b2" class="buttonPressed"/>                 
+                </condition>
+                <action>
+                    <property part-name="b2" name="text">
+                        <call name="onClick">
+                            <param><property part-name="result" name="text"/></param>
+                            <param><property part-name="b2" name="label"/></param>
+                        </call>
+                    </property>
+                </action>
+            </rule>
+            <rule>
+                <condition>
+                    <event part-name="b3" class="buttonPressed"/>                 
+                </condition>
+                <action>
+                    <property part-name="b3" name="text">
+                        <call name="onClick">
+                            <param><property part-name="result" name="text"/></param>
+                            <param><property part-name="b3" name="label"/></param>
+                        </call>
+                    </property>
+                </action>
+            </rule>
+            <rule>
+                <condition>
+                    <event part-name="plus" class="buttonPressed"/>                 
+                </condition>
+                <action>
+                    <property part-name="plus" name="text">
+                        <call name="onClick">
+                            <param><property part-name="result" name="text"/></param>
+                            <param><property part-name="plus" name="label"/></param>
+                        </call>
+                    </property>
+                </action>
+            </rule>
+            <rule>
+                <condition>
+                    <event part-name="minus" class="buttonPressed"/>                 
+                </condition>
+                <action>
+                    <property part-name="minus" name="text">
+                        <call name="onClick">
+                            <param><property part-name="result" name="text"/></param>
+                            <param><property part-name="minus" name="label"/></param>
+                        </call>
+                    </property>
+                </action>
+            </rule>
+            <rule>
+                <condition>
+                    <event part-name="equals" class="buttonPressed"/>                 
+                </condition>
+                <action>
+                    <property part-name="equals" name="text">
+                        <call name="onClick">
+                            <param><property part-name="result" name="text"/></param>
+                            <param><property part-name="equals" name="label"/></param>
+                        </call>
+                    </property>
+                </action>
+            </rule>
+        </behavior>
+    </interface>
+    <peers>
+    </peers>
+</uiml>

@@ -22,6 +22,25 @@
     <style>
       <property part-name="buttonENG" name="label">English</property>
       <property part-name="buttonDE" name="label">Deutsch</property>-->
+      <property part-name="imgB1">
+        <reference constant-name="imgB1"/>
+      </property>
+      <property part-name="buttonDE">
+        <reference constant-name="buttonDE"/>
+      </property>
+      <!--<property part-name="text" name="label"></property>-->
+      <property part-name="text">
+        <reference constant-name="text"/>
+      </property>
+      <property part-name="cb1">
+        <reference constant-name="cb1"/>
+      </property>
+      <property part-name="item1">
+        <reference constant-name="item1"/>
+      </property>
+      <property part-name="item2">
+        <reference constant-name="item2"/>
+      </property>
       <!--<property part-name="check" name="label">Choose movie to watch:</property>
       <property part-name="chItem1" name="value">matrix</property>
       <property part-name="chItem2" name="value">lotr</property>
@@ -55,16 +74,16 @@
         </condition>
         <action>
           <!--1-->
-          <property id="b1" name="color">blue</property>
+          <property part-name="b1" name="color">blue</property>
           <!--2-->
-          <property id="b2" name="color">
+          <property part-name="b2" name="color">
             <reference constant-name="green"/>
           </property>
           <!--3-->
-          <property id="b2" name="color"/>
-          <property id="b1" name="color"/>
+          <property part-name="b2" name="color"/>
+          <property part-name="b1" name="color"/>
           <!--4-->
-          <property id="b3" name="color">
+          <property part-name="b3" name="color">
             <call component-id="serverObject" method-id="getColor"/>
           </property>
         </action>

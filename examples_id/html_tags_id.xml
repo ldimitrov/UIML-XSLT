@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+    <interface>
+        <structure>
+            <part class="H1" id="h11"/>
+            <part class="H2" id="h21"/>
+            <part class="H3" id="h31"/>
+            <part class="H4" id="h41"/>
+            <part class="H5" id="h51"/>
+            <part class="H6" id="h61"/>
+            <part class="div" id="div1">
+                <part class="Anchor" id="link1"/>
+                <part class="Anchor" id="link2">
+                    <part class="Image" id="image1"/>  
+                </part>
+            </part>
+            <part class="Image" id="image2">
+                <style>
+                    <property part-name="image2" name="src">image2.png</property>
+                    <property part-name="image2" name="alt">nested picture as a button</property>
+                </style>     
+            </part>            
+            <part class="Image" id="image3"/>  
+        </structure>
+        <style>  
+        </style>
+        <content>
+            <constant id="link1" label="link1 text" href="https://www.link1.com/"/>
+            <constant id="link2" label="Click Here" href="https://www.link2.com/"/>
+            <constant id="image1" alt="PIC BUTTON" src="image1.png"/>
+            <constant id="image3" alt="this is alt" src="image3.png"/>
+            <constant id="h11" value="This is a h1 heading"/>
+            <constant id="h21" value="This is a h2 heading"/>
+            <constant id="h31" value="This is a h3 heading"/>
+            <constant id="h41" value="This is a h4 heading"/>
+            <constant id="h51" value="This is a h5 heading"/>
+            <constant id="h61" value="This is a h6 heading"/>
+        </content>
+    </interface>
+    <peers>
+    </peers>
+</uiml>
