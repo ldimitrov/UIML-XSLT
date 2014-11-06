@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiml>
+  <interface>
+    <structure>
+      <part class="VerticalLayout" id="v1">
+        <part id="DROP" class="Select">
+          <part id="opt1" class="Option" />
+          <part id="opt2" class="Option" />
+        </part>
+      </part>
+    </structure>
+    <style>
+      <property id="DROP" name="style">style</property>
+    </style>
+    <content>
+      <constant id="opt1" label="Vanilla" value="vanilla" />
+      <constant id="opt2" label="Chocoshoco" value="chocoshoco" />
+      <constant id="DROP" label="DOWN" />
+    </content>
+    <behavior />
+  </interface>
+</uiml>
