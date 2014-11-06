@@ -5,29 +5,18 @@
     xmlns:xf="http://www.w3.org/2002/xforms" 
     version="2.0">
     
-    <xsl:key name="selectLabels" match="property[@name='label']" use="@part-name"/>
-    <xsl:key name="selectLabels" match="property[@name='label']" use="@id"/>
+    <xsl:key name="selectLabels" match="constant[@label]" use="@part-name"/>
+    <xsl:key name="selectLabels" match="constant" use="@id"/>
     <xsl:template match="part[@class='Select'][not(@multiple)][key('selectLabels', @id)]">
         <xf:select1 appearance="minimal">
-            <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>
+            <xsl:apply-templates select="@id"/>
             
             <!-- Create Reference to the XForms instance -->
             <xsl:attribute name="ref">
-                <xsl:apply-templates select="@accesskey | @tabindex | @style | @id"/>
-                <xsl:choose>
-                    <xsl:when test="@id">
-                        <xsl:value-of select="@id"/>
-                    </xsl:when>
-                    <xsl:when test="@name and not(@id)">
-                        <xsl:value-of select="@name"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="concat(local-name(.), position())"/>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <xsl:apply-templates select="@id"/>                
             </xsl:attribute>
             <xf:label>
-                <xsl:value-of select="key('selectLabels', @id)"/>
+                <xsl:value-of select="key('selectLabels', @id)/@label"/>
             </xf:label>
         
             <!-- Create <item> elements	-->            
@@ -39,24 +28,10 @@
     <xsl:template match="part[@class='Option'][key('selectLabels', @id)]">
         <xf:item>
             <xf:label>
-<!--                <xsl:choose>-->
-<!--                    <xsl:when test="@label">-->
-                        <xsl:value-of select="key('selectLabels', @id)"/>
-                    <!--</xsl:when>-->
-                   <!-- <xsl:otherwise>
-                        <xsl:value-of select="."/>
-                    </xsl:otherwise>-->
-                <!--</xsl:choose>-->
+                <xsl:value-of select="key('selectLabels', @id)/@label"/>
             </xf:label>
             <xf:value>
-                <xsl:choose>
-                    <xsl:when test="@value">
-                        <xsl:value-of select="@value"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="translate(., ' ', '_')"/>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <xsl:value-of select="key('selectLabels', @id)/@value"/>
             </xf:value>
         </xf:item>
     </xsl:template>
