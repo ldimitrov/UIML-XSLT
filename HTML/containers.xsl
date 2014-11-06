@@ -18,4 +18,20 @@
         </span>        
     </xsl:template>
     
+    <!-- UI - Vertical Layout turns into a HTML div tag - <div/>  -->
+    <xsl:template match="part[@class='VerticalLayout']">
+        <xsl:element name="div">
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
+    <!-- UI - Horizontal Layout turns into a HTML span tag enclosed with a div -<div> <span/> </div>  -->
+    <xsl:template match="part[@class='HorizontalLayout']">       
+        <div>
+            <span>
+                <xsl:apply-templates/>
+            </span>
+        </div>
+    </xsl:template>
+    
 </xsl:stylesheet>
