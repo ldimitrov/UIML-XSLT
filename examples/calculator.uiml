@@ -2,38 +2,34 @@
 <uiml>
   <interface>
     <structure> 
-      <part class="Container" id="c2">
-          <part class="H1" id="h1"/>
-      </part>
-      <part class="Container" id="c1">
-        <part class="Row" id="inputRow">
-          <part class="TextInput" id="input"/>
-        </part>
-        <part class="Row" id="firstRow">
+      <part class="H1" id="h1"/>
+      <part class="VerticalLayout" id="v1">
+        <part class="TextInput" id="input"/>            
+        <part class="HorizontalLayout" id="firstRow">
           <part class="Button" id="b7"/>
           <part class="Button" id="b8"/>
           <part class="Button" id="b9"/>
           <part class="Button" id="division"/>
         </part>
-        <part class="Row" id="secondRow">
+        <part class="HorizontalLayout" id="secondRow">
           <part class="Button" id="b4"/>
           <part class="Button" id="b5"/>
           <part class="Button" id="b6"/>
           <part class="Button" id="multiplication"/>
         </part>
-        <part class="Col" id="thirdRow">
+        <part class="HorizontalLayout" id="thirdRow">
           <part class="Button" id="b1"/>
           <part class="Button" id="b2"/>
           <part class="Button" id="b3"/>
           <part class="Button" id="minus"/>
         </part>
-        <part class="Col" id="forthRow">
+        <part class="HorizontalLayout" id="forthRow">
           <part class="Button" id="b0"/>
           <part class="Button" id="clear"/>
           <part class="Button" id="equals"/>
           <part class="Button" id="plus"/>
         </part>      
-      </part> 
+      </part>
     </structure>
     <style>
       <property part-name="h1" name="value">UIML Calculator</property>
@@ -89,28 +85,7 @@
       </property>
       <property part-name="equals">
         <reference constant-name="equals"/>
-      </property>
-      
-      <!-- Contents inside the <style> tag still work if uncommented. When using them, 
-        references from <style> to <content> tag should be commented out instead. -->
-      
-      <!--<property part-name="b0" name="label">0</property>
-      <property part-name="b1" name="label">1</property>
-      <property part-name="b2" name="label">2</property>
-      <property part-name="b3" name="label">3</property>
-      <property part-name="b4" name="label">4</property>
-      <property part-name="b5" name="label">5</property>
-      <property part-name="b6" name="label">6</property>
-      <property part-name="b7" name="label">7</property>
-      <property part-name="b8" name="label">8</property>
-      <property part-name="b9" name="label">9</property>
-      <property part-name="division" name="label">/</property>      
-      <property part-name="multiplication" name="label">*</property>      
-      <property part-name="minus" name="label">-</property>      
-      <property part-name="plus" name="label">+</property>      
-      <property part-name="clear" name="label">C</property>
-      <property part-name="equals" name="label">=</property>-->
-      
+      </property>      
       <property part-name="b0" name="style">btn btn-primary</property>
       <property part-name="b1" name="style">btn btn-primary</property> 
       <property part-name="b2" name="style">btn btn-primary</property> 
@@ -148,9 +123,232 @@
       <constant id="equals" label="="/>
       <constant id="clear" label="C"/>
     </content>
-    <behavior>
+        <behavior>
+      <rule>
+        <condition>
+          <event part-name="b0" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b0" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b1" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b1" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b2" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b2" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b3" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b3" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b4" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b4" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b5" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b5" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b6" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b6" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b7" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b7" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b8" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b8" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="b9" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text">
+            <call name="String.concatenate">
+              <param><property part-name="input" name="text"/></param>
+              <param><property part-name="b9" name="label"/></param>
+            </call>
+          </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="clear" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <property part-name="input" name="text"></property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="plus" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <call name="CalcFunc.recordNumber">
+            <param name="newval">
+              <property part-name="input" name="text"/>
+            </param>
+          </call>
+          <call name="CalcFunc.recordOperation">
+            <param name="newop">
+              <property part-name="plus" name="label"/>
+            </param>
+          </call>
+          <property part-name="input" name="text"> </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="minus" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <call name="CalcFunc.recordNumber">
+            <param name="newval">
+              <property part-name="input" name="text"/>
+            </param>
+          </call>
+          <call name="CalcFunc.recordOperation">
+            <param name="newop">
+              <property part-name="min" name="label"/>
+            </param>
+          </call>
+          <property part-name="input" name="text"> </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="multiplication" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <call name="CalcFunc.recordNumber">
+            <param name="newval">
+              <property part-name="input" name="text"/>
+            </param>
+          </call>
+          <call name="CalcFunc.recordOperation">
+            <param name="newop">
+              <property part-name="multiplication" name="label"/>
+            </param>
+          </call>
+          <property part-name="input" name="text"> </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="division" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <call name="CalcFunc.recordNumber">
+            <param name="newval">
+              <property part-name="input" name="text"/>
+            </param>
+          </call>
+          <call name="CalcFunc.recordOperation">
+            <param name="newop">
+              <property part-name="division" name="label"/>
+            </param>
+          </call>
+          <property part-name="input" name="text"> </property>
+        </action>
+      </rule>
+      <rule>
+        <condition>
+          <event part-name="equals" class="ButtonPressed"/>
+        </condition>
+        <action>
+          <call name="CalcFunc.recordNumber">
+            <param name="newval">
+              <property part-name="input" name="text"/>
+            </param>
+          </call>
+          <property part-name="input" name="text">
+            <call name="CalcFunc.calculateResult"/>
+          </property>
+        </action>
+      </rule>
     </behavior>
   </interface>
-  <peers>
-  </peers>
 </uiml>
