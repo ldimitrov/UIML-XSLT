@@ -7,6 +7,8 @@
     
     <xsl:key name="selectLabels" match="constant[@label]" use="@part-name"/>
     <xsl:key name="selectLabels" match="constant" use="@id"/>
+    <xsl:key name="selectStyles" match="property[@name='style']" use="@part-name"/>
+    <xsl:key name="selectStyles" match="property[@name='style']" use="@id"/>
     <xsl:template match="part[@class='Select'][not(@multiple)][key('selectLabels', @id)]">
         <xf:select1 appearance="minimal">
             <xsl:apply-templates select="@id"/>
@@ -14,6 +16,10 @@
             <!-- Create Reference to the XForms instance -->
             <xsl:attribute name="ref">
                 <xsl:apply-templates select="@id"/>                
+            </xsl:attribute>
+            
+            <xsl:attribute name="class">
+                <xsl:value-of select="key('selectStyles', @id)"/>     
             </xsl:attribute>
             
             <xsl:choose>
