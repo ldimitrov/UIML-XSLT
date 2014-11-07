@@ -6,6 +6,7 @@
     version="2.0">
     
     <xsl:key name="Contents" match="constant" use="@id"/>
+    <xsl:key name="buttonStyles" match="property[@name='style']" use="@part-name"/>
     <xsl:key name="buttonLabels" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="altAttribute" match="property[@name='alt']" use="@part-name"/>
     <xsl:key name="imageSource" match="property[@name='src']" use="@part-name"/>
@@ -14,6 +15,7 @@
     <!-- Parts that have all attributes in a single <property> tag -->
     <xsl:key name="buttonAttributes_single" match="property" use="@part-name"/>
     <!-- Keys for matching ids only  -->
+    <xsl:key name="buttonStyles" match="property[@name='style']" use="@id"/>
     <xsl:key name="buttonLabels" match="property[@name='label']" use="@id"/>
     <xsl:key name="altAttribute" match="property[@name='alt']" use="@id"/>
     <xsl:key name="imageSource" match="property[@name='src']" use="@id"/>
@@ -23,7 +25,14 @@
     <!-- Buttons which have an @id corresponding to a style/property @part-name
          In Single property line or Multiple property lines -->  
     <xsl:template match="part[@class='ImageButton']">
-        <xf:trigger id="{@id}">            
+        <xf:trigger id="{@id}">
+            <xsl:choose>
+                <xsl:when test="key('buttonStyles', @id) != ''">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('buttonStyles', @id)"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
             <xsl:choose>
                 <xsl:when test="key('buttonAttributes_single', @id)/@appearance != ''">
                     <xsl:attribute name="appearance">
@@ -36,7 +45,7 @@
                     </xsl:attribute>
                 </xsl:when>                
             </xsl:choose>
-            <xsl:apply-templates select="@accesskey | @tabindex | @size | @style | @id"/>
+            <xsl:apply-templates select="@id"/>
             
             <xsl:choose>
                 <xsl:when test="key('buttonAttributes_single', @id)/@label != ''">
