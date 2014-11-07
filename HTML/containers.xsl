@@ -4,9 +4,20 @@
     exclude-result-prefixes="xs"
     version="2.0">
         
+    <!-- Keys  for matching by @id or by @part-name -->
+    <xsl:key name="divStyles" match="property[@name='style']" use="@part-name"/>
+    <xsl:key name="divStyles" match="property[@name='style']" use="@id"/>
+            
     <!-- UI - HTML div tag - <div/>  -->
     <xsl:template match="part[@class='div']">
         <xsl:element name="div">
+            <xsl:choose>
+                <xsl:when test="key('divStyles', @id) != ''">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('divStyles', @id)"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
@@ -15,6 +26,13 @@
     <xsl:template match="part[@class='span']">       
         <span>
             <xsl:apply-templates/>
+            <xsl:choose>
+                <xsl:when test="key('divStyles', @id) != ''">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('divStyles', @id)"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
         </span>        
     </xsl:template>
     
@@ -22,15 +40,29 @@
     <xsl:template match="part[@class='VerticalLayout']">
         <xsl:element name="div">
             <xsl:apply-templates/>
+            <xsl:choose>
+                <xsl:when test="key('divStyles', @id) != ''">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('divStyles', @id)"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
         </xsl:element>
     </xsl:template>
     
     <!-- UI - Horizontal Layout turns into a HTML span tag enclosed with a div -<div> <span/> </div>  -->
     <xsl:template match="part[@class='HorizontalLayout']">       
         <div>
-            <span>
-                <xsl:apply-templates/>
-            </span>
+            <xsl:choose>
+                <xsl:when test="key('divStyles', @id) != ''">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('divStyles', @id)"/>
+                    </xsl:attribute>
+                    <span>
+                        <xsl:apply-templates/>
+                    </span>
+                </xsl:when>
+            </xsl:choose>
         </div>
     </xsl:template>
     
