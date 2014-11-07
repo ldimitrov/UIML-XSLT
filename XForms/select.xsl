@@ -15,10 +15,15 @@
             <xsl:attribute name="ref">
                 <xsl:apply-templates select="@id"/>                
             </xsl:attribute>
-            <xf:label>
-                <xsl:value-of select="key('selectLabels', @id)/@label"/>
-            </xf:label>
-        
+            
+            <xsl:choose>
+                <xsl:when test="key('selectLabels', @id)/@label != ''">
+                    <xf:label>
+                        <xsl:value-of select="key('selectLabels', @id)/@label"/>
+                    </xf:label>
+                </xsl:when>
+            </xsl:choose>
+
             <!-- Create <item> elements	-->            
             <xsl:apply-templates select="*"/>
         </xf:select1>
