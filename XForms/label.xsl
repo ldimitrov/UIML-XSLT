@@ -17,7 +17,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xf:label>
-                    <xsl:value-of select="key('Contents', @id)/@value"/>
+                    <xsl:value-of select="key('Contents', @id)/@label"/>
                 </xf:label>
             </xsl:otherwise>
         </xsl:choose>        
