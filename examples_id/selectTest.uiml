@@ -2,21 +2,46 @@
 <uiml>
   <interface>
     <structure>
-      <part class="VerticalLayout" id="v1">
-        <part id="DROP" class="Select">
+      <part class="HorizontalLayout" id="h1">
+        <part id="btn_info" class="ImageButton" />
+        <part id="villageSelect" class="Select">
           <part id="opt1" class="Option" />
           <part id="opt2" class="Option" />
         </part>
+        <part id="btn_go" class="ImageButton" />
+        <part id="btn_world" class="ImageButton" />
+        <part id="btn_tile" class="ImageButton" />
+        <part id="btn_map" class="ImageButton" />
       </part>
+      <part id="v1" class="VerticalLayout"></part>
     </structure>
     <style>
-      <property id="DROP" name="style">style</property>
+      <property id="h1" name="style">topMenu</property>
+      <property id="v1" name="style">vertical</property>
+      <property id="villageSelect" name="style">town-select xforms-value</property>
+      <property id="btn_info" name="style">bt_townInfo</property>
+      <property id="btn_go" name="style">bt_townGoto</property>
+      <property id="btn_world" name="style">bt_world</property>
+      <property id="btn_tile" name="style">bt_tile</property>
+      <property id="btn_map" name="style">bt_map</property>
     </style>
     <content>
-      <constant id="opt1" label="Vanilla" value="vanilla" />
-      <constant id="opt2" label="Chocoshoco" value="chocoshoco" />
-      <constant id="DROP" label="DOWN" />
+      <constant id="villageSelect" label="" />
+      <constant id="opt1" label="Capital" value="capital" />
+      <constant id="opt2" label="Village" value="village" />
+      <constant id="btn_info" label="" />
+      <constant id="btn_go" label="" />
+      <constant id="btn_world" label="" />
+      <constant id="btn_tile" label="" />
+      <constant id="btn_map" label="" />
+      <constant id="btn_info" src="gfx/BUTTON_SMALL_INFO.PNG" />
+      <constant id="btn_go" src="gfx/BUTTON_SMALL_GO.PNG" />
+      <constant id="btn_world" src="gfx/BUTTON_WORLD.PNG" />
+      <constant id="btn_tile" src="gfx/BUTTON_SMALL_TILES.PNG" />
+      <constant id="btn_map" src="gfx/BUTTON_MAP.PNG" />
     </content>
     <behavior />
   </interface>
+  <peers />
 </uiml>
+

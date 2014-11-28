@@ -8,7 +8,7 @@
     <xsl:key name="labelNames" match="property[@name='label']" use="@part-name"/>
     <xsl:key name="labelNames" match="property[@name='label']" use="@id"/>
     <xsl:key name="Contents" match="constant" use="@id"/>
-    <xsl:template match="part[@class='Label'][key('labelNames', @id)]">
+    <xsl:template match="part[@class='Label']"> <!-- [key('labelNames', @id)] -->
         <xsl:choose>
             <xsl:when test="key('labelNames', @id) != ''">
                 <xf:label>
