@@ -51,6 +51,20 @@
     </xsl:template>
     
     <!-- UI - Horizontal Layout turns into a HTML span tag enclosed with a div -<div> <span/> </div>  -->
+    <xsl:template match="part[@class='HorizontalLayout']">
+        <xsl:choose>
+            <xsl:when test="key('divStyles', @id) != ''">
+                <xsl:element name="span">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="key('divStyles', @id)"/>
+                    </xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
+    
+    <!-- UI - Horizontal Layout turns into a HTML span tag enclosed with a div -<div> <span/> </div>  
     <xsl:template match="part[@class='HorizontalLayout']">       
         <div>
             <xsl:apply-templates/>
@@ -66,5 +80,5 @@
             </xsl:choose>
         </div>
     </xsl:template>
-    
+    -->
 </xsl:stylesheet>
